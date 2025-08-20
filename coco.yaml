@@ -1,0 +1,10 @@
+path: ./dataset
+train: images/train
+val: images/val
+
+names:
+  0: text
+
+obb: true
+
+nc: 1
