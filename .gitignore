@@ -4,3 +4,7 @@ dataset
 ultralytics
 *.pt
 *.pth
+models
+debug
+__pycache__
+.env
