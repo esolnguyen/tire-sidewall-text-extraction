@@ -1,0 +1,35 @@
+================================================================================
+PREPROCESSING METHODS COMPARISON - STATISTICS
+================================================================================
+
+Input Image: debug/02_preprocessed.jpg
+Image Size: (440, 6400, 3)
+
+Original (No Enhancement):
+  Mean:       56.19
+  Std Dev:    32.32
+  Min:            0
+  Max:          255
+  Range:        255
+
+Linear Stretching:
+  Mean:      130.71
+  Std Dev:    71.59
+  Min:            0
+  Max:          255
+  Range:        255
+
+Histogram Equalization:
+  Mean:      108.55
+  Std Dev:    82.65
+  Min:            0
+  Max:          255
+  Range:        255
+
+CLAHE:
+  Mean:       89.92
+  Std Dev:    55.52
+  Min:            0
+  Max:          255
+  Range:        255
+

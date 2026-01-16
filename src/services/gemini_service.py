@@ -14,9 +14,24 @@ Your task is to perform a complete analysis of the provided tire sidewall. You h
 **Instructions:**
 ---
 1.  **Identify Manufacturer:** First, determine the most likely `Manufacturer`. Analyze the `OCR Text` and the tire sidewall image, and choose the best option from the `Known Manufacturer Candidates` list, which includes similarity scores. If no candidate seems correct, use your own knowledge. The image may help identify the brand logo or confirm unclear OCR text.
-2.  **Identify Model:** Find the `Model` series. The `Known Model Series Candidates` list contains the most probable models from our database. Use this list, the OCR text, and the visual information from the image to select the correct one. Correct for OCR errors (e.g., a fragment like `LAZEX3` might correspond to `MILAZE X3` in the list). The image can help clarify ambiguous characters.
+2.  **Identify Model (CRITICAL):** Find the `Model` series. The `Known Model Series Candidates` list contains the most probable models from our database. Use this list, the OCR text, and the visual information from the image to select the correct one. Correct for OCR errors (e.g., a fragment like `LAZEX3` might correspond to `MILAZE X3` in the list). The image can help clarify ambiguous characters.
 3.  **Extract Size & Load/Speed:** These are often combined (e.g., '225/45ZR1791V'). Separate them into `Size` ('225/45ZR17') and `LoadSpeed` ('91V'). Use the image to verify or correct OCR errors in these critical numbers.
-4.  **Extract DOT Date:** Find the code starting with "DOT" and extract only the final 4-digit week/year part (WWYY). The image can help locate and verify this code if OCR missed it or got it wrong.
+4. DOT & Date Code (Advanced Logic - Priority Step):**
+   - **Target Format:** `WWYY` (4 digits).
+   - **Step A: Candidate Search:** Identify all 4-digit number candidates in the text.
+   - **Step B: Prioritization:**
+     - If multiple 4-digit numbers exist, choose the one physically closest to the text "DOT" or enclosed in an oval border in the image.
+   - **Step C: Validation & OCR Correction (The "Guessing" Logic):**
+     - **Week Check:** `WW` must be `01` to `53`.
+     - **Year Check:** `YY` represents the year (e.g., `19` = 2019).
+     - **Future Date Handling:**
+       - If `YY` > `25` (e.g., "3528" implies 2028), this is physically impossible (Future Date).
+       - **Action:** Analyze the image and the digits to guess the correction. OCR often mistakes similar shapes:
+         - `8` might be `3`, `6`, or `0`. (e.g., "3528" -> likely "3523" or "3520").
+         - `9` might be `0` or `8`.
+       - If a logical correction brings the year to the past/present (<= 25), apply it.
+       - If no logical correction works, mark as "Not found".
+
 5.  **Extract Special Markings:** Identify any special markings from the text and image. Refer to the `Known Special Markings` list for guidance. Return only the short-form term or symbol (e.g., 'MO', 'AO', 'BMW Star', 'XL'). Visual inspection of the image may reveal markings that OCR missed.
     - **Crucially:** If you see 'M+S', 'AM+S', 'M+SA', 'M.S', 'AM.S', 'M.SA', 'MS', 'AMS', 'MSA', 'MAS' or similar variations, this is a '3PMSF' (Three-Peak Mountain Snowflake) indicator.
 
@@ -24,14 +39,25 @@ Your task is to perform a complete analysis of the provided tire sidewall. You h
 
 **Input Data:**
 ---
-**OCR Text:**
+**OCR Text with Bounding Boxes:**
 {full_text}
 
-**Flattened Tire Sidewall Image:**
-[Image provided above - use this to verify and supplement the OCR text]
+Note: Each text entry includes its bounding box coordinates (x1, y1, x2, y2) showing its position on the flattened tire image. Use this spatial information to understand the layout and relative positions of text elements.
 
-**Known Tire Manufacturer and Model Series Candidates (Brand, Model, Similarity Score):**
-{know_tire}
+**Flattened Tire Sidewall Image:**
+[Image provided above - use this to verify and supplement the OCR text. The bounding box coordinates correspond to positions in this image.]
+
+---
+**Verification & Confidence Check:**
+---
+**IMPORTANT:** If you are not confident/certain about your extraction result for any field, use the provided OCR text with bounding boxes to verify and validate your result. 
+
+Specifically:
+- Cross-reference your visual interpretation with the OCR text provided
+- Check if OCR recognized similar-looking characters (e.g., O vs 0, I vs 1, l vs L, u vs v)
+- Verify spatial positioning: does the text location match the typical tire layout?
+- If OCR shows a different value than what you see visually, analyze both carefully and choose the most reliable source
+- Use the bounding box information to confirm text is in the expected location (e.g., DOT code should be at bottom of tire)
 
 ---
 **JSON Output Schema:**

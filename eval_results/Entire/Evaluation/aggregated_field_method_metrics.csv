@@ -1,0 +1,15 @@
+Field,Method,Precision,Recall,F1
+Dot,G25_flash_only,0.6904,0.6904,0.6904
+,G25_flash_pipeline,0.7888,0.7888,0.7888
+Loadspeed,G25_flash_only,0.8956,0.8956,0.8956
+,G25_flash_pipeline,0.8956,0.8956,0.8956
+Manufacturer,G25_flash_only,0.9786,0.9786,0.9786
+,G25_flash_pipeline,0.9858,0.9858,0.9858
+Model,G25_flash_only,0.9027,0.9027,0.9027
+,G25_flash_pipeline,0.8873,0.8873,0.8873
+Overall,G25_flash_only,0.3903,0.3903,0.3903
+,G25_flash_pipeline,0.4306,0.4306,0.4306
+Size,G25_flash_only,0.9217,0.9217,0.9217
+,G25_flash_pipeline,0.9442,0.9442,0.9442
+Specialmarkings,G25_flash_only,0.6809,0.6809,0.6809
+,G25_flash_pipeline,0.6655,0.6655,0.6655

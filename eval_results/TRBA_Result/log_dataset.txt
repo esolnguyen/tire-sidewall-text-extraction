@@ -1,0 +1,15 @@
+--------------------------------------------------------------------------------
+dataset_root: data/tire_rec_prepared/training
+opt.select_data: ['tire']
+opt.batch_ratio: ['1']
+--------------------------------------------------------------------------------
+dataset_root:    data/tire_rec_prepared/training	 dataset: tire
+sub-directory:	/tire	 num samples: 5092
+num total samples of tire: 5092 x 1.0 (total_data_usage_ratio) = 5092
+num samples of tire per batch: 192 x 1.0 (batch_ratio) = 192
+--------------------------------------------------------------------------------
+Total_batch_size: 192 = 192
+--------------------------------------------------------------------------------
+dataset_root:    data/tire_rec_prepared/validation	 dataset: /
+sub-directory:	/tire	 num samples: 2183
+--------------------------------------------------------------------------------

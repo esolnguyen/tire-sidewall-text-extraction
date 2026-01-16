@@ -8,7 +8,7 @@ load_dotenv()
 class TireExtractionConfig:
     # Model paths
     YOLO_MODEL_PATH = "models/tire_det.pt"
-    TEXT_DETECTION_MODEL_PATH = "models/yolo_textdetv1.pt"
+    TEXT_DETECTION_MODEL_PATH = "models/yolo_textdetv3.pt"
     TEXT_RECOGNITION_MODEL_PATH = "models/text_rec.pth"
 
     # Text recognition model configuration
@@ -22,8 +22,9 @@ class TireExtractionConfig:
     TEXT_RECOGNITION_BATCH_MAX_LENGTH = 40  # Must match training parameter
 
     # Target dimensions for image processing (flattened sidewall)
-    TARGET_WIDTH = 6400
-    TARGET_HEIGHT = 640
+    TARGET_WIDTH = 3200
+    TARGET_HEIGHT = 320
+    CONF_THRESHOLD = 0.2
 
     # Flattening parameters
     FLATTEN_OUTPUT_HEIGHT = 640
@@ -33,8 +34,17 @@ class TireExtractionConfig:
     RIM_RADIUS_SCALE_FACTOR = 0.6
 
     # Image preprocessing parameters
+    # Preprocessing method: 'linear', 'histogram_eq', 'clahe', or 'none'
+    # For thesis comparison of three methods: Linear Stretching, HE, CLAHE
+    PREPROCESSING_METHOD = "clahe"
+
+    # CLAHE parameters (used when PREPROCESSING_METHOD = 'clahe')
     CLAHE_CLIP_LIMIT = 4.0
     CLAHE_TILE_GRID_SIZE = (8, 8)
+
+    # Linear Stretching parameters (used when PREPROCESSING_METHOD = 'linear')
+    LINEAR_MIN_PERCENTILE = 2.0
+    LINEAR_MAX_PERCENTILE = 98.0
 
     # Input and output directories
     INPUT_DIR = os.path.join("data", "input")
@@ -45,7 +55,9 @@ class TireExtractionConfig:
 
     # Google Gemini API configuration
     GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-    GEMINI_MODEL = "gemini-2.5-pro"
+    GEMINI_MODEL = "gemini-2.5-flash"
+
+    # GEMINI_MODEL = "gemini-3-pro-preview"
 
     # Other constants
     MAX_TEXT_LENGTH = 100  # Maximum length of text to process

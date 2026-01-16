@@ -9,9 +9,9 @@ Usage:
     python evaluate.py [options]
     
 Examples:
-    python evaluate.py
-    python evaluate.py --output evaluation_results.json
-    python evaluate.py --debug --max-images 10
+    python3 evaluate.py
+    python3 evaluate.py --output evaluation_results.json
+    python3 evaluate.py --debug --max-images 10
 """
 
 from src.config import TireExtractionConfig
@@ -26,6 +26,7 @@ import pandas as pd
 from datetime import datetime
 from typing import Dict, List,  Optional
 import traceback
+from fuzzywuzzy import fuzz
 
 # Add src to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
@@ -128,25 +129,34 @@ def calculate_field_accuracy(predicted: str, expected: str, field_name: str) -> 
         if not exp_set and not pred_set:
             return {"correct": True, "partial": False, "details": "Both empty"}
         if not exp_set:
+            # No expected markings, so having any predicted is considered incorrect
             return {"correct": False, "partial": False, "details": f"Expected empty but got {pred_set}"}
         if not pred_set:
             return {"correct": False, "partial": False, "details": f"Got empty but expected {exp_set}"}
 
-        # Calculate Jaccard similarity
-        intersection = pred_set & exp_set
-        union = pred_set | exp_set
+        # Check if all expected items are in predicted (subset check)
+        missing = exp_set - pred_set
+        extra = pred_set - exp_set
 
-        if pred_set == exp_set:
-            return {"correct": True, "partial": False, "details": "Exact match"}
-        elif len(intersection) > 0:
-            similarity = len(intersection) / len(union)
+        if len(missing) == 0:
+            # All expected items are found in predicted
+            if len(extra) == 0:
+                return {"correct": True, "partial": False, "details": "Exact match"}
+            else:
+                # All expected found, but there are extra items
+                return {"correct": True, "partial": False, "details": f"All expected found (extra: {extra})"}
+        elif len(missing) < len(exp_set):
+            # Some expected items found, but not all
+            found = exp_set & pred_set
+            coverage = len(found) / len(exp_set)
             return {
                 "correct": False,
                 "partial": True,
-                "similarity": similarity,
-                "details": f"Partial match: {intersection} (missing: {exp_set - pred_set}, extra: {pred_set - exp_set})"
+                "similarity": coverage,
+                "details": f"Partial match: found {found}, missing {missing}" + (f", extra: {extra}" if extra else "")
             }
         else:
+            # No expected items found
             return {
                 "correct": False,
                 "partial": False,
@@ -164,7 +174,34 @@ def calculate_field_accuracy(predicted: str, expected: str, field_name: str) -> 
     if pred_norm == exp_norm:
         return {"correct": True, "partial": False, "details": "Exact match"}
 
-    # Check for partial match (substring)
+    # Use fuzzy matching for Model field with 80% threshold
+    if field_name == "Model":
+        # Calculate fuzzy ratio (0-100)
+        fuzzy_ratio = fuzz.ratio(pred_norm, exp_norm)
+
+        if fuzzy_ratio >= 80:
+            return {
+                "correct": True,
+                "partial": False,
+                "similarity": fuzzy_ratio / 100,
+                "details": f"Fuzzy match ({fuzzy_ratio}%). Expected: '{expected}', Got: '{predicted}'"
+            }
+        elif fuzzy_ratio >= 60:
+            return {
+                "correct": False,
+                "partial": True,
+                "similarity": fuzzy_ratio / 100,
+                "details": f"Partial fuzzy match ({fuzzy_ratio}%). Expected: '{expected}', Got: '{predicted}'"
+            }
+        else:
+            return {
+                "correct": False,
+                "partial": False,
+                "similarity": fuzzy_ratio / 100,
+                "details": f"Low similarity ({fuzzy_ratio}%). Expected: '{expected}', Got: '{predicted}'"
+            }
+
+    # Check for partial match (substring) for other fields
     if pred_norm in exp_norm or exp_norm in pred_norm:
         return {
             "correct": False,
@@ -206,13 +243,11 @@ def evaluate_single_image(
         import time
         start_time = time.time()
 
-        # Run pipeline
         tire_info = pipeline.run_pipeline(image_path, save_debug=save_debug)
 
         result["execution_time"] = time.time() - start_time
         result["success"] = True
 
-        # Extract predicted values
         result["predicted"] = {
             "Manufacturer": tire_info.manufacturer or "Not found",
             "Model": tire_info.model or "Not found",
@@ -225,7 +260,6 @@ def evaluate_single_image(
         logger.info(f"Expected: {expected}")
         logger.info(f"Predicted: {result['predicted']}")
 
-        # Calculate field-level accuracy
         fields = ["Manufacturer", "Model", "LoadSpeed",
                   "Size", "DOT", "SpecialMarkings"]
         all_correct = True

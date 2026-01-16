@@ -1,0 +1,1752 @@
+[1/300000] Train loss: 0.00404, Valid loss: 0.58877, Elapsed_time: 1.35524
+Current_accuracy : 82.180, Current_norm_ED  : 0.94
+Best_accuracy    : 82.180, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+4517                      | 4517                      | 0.9999	True
+YOKOHAMA                  | YOKOHAMA                  | 0.9998	True
+25555R20                  | 25555R20                  | 1.0000	True
+100V                      | 100V                      | 1.0000	True
+25545R20                  | 25545R20                  | 0.9975	True
+--------------------------------------------------------------------------------
+[2000/300000] Train loss: 0.00387, Valid loss: 0.58765, Elapsed_time: 363.95861
+Current_accuracy : 82.210, Current_norm_ED  : 0.94
+Best_accuracy    : 82.210, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+KUMHO                     | KUMHO                     | 0.9997	True
+EFFICIENTGRIP             | EICIINIORUS               | 0.0440	False
+MICHELIN                  | MICHELIN                  | 0.9999	True
+101W                      | 101W                      | 0.9987	True
+YOKOHAMA                  | YOKOHAMA                  | 0.9996	True
+--------------------------------------------------------------------------------
+[4000/300000] Train loss: 0.00378, Valid loss: 0.58661, Elapsed_time: 723.71081
+Current_accuracy : 82.239, Current_norm_ED  : 0.94
+Best_accuracy    : 82.239, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+runflat                   | runflat                   | 0.9920	True
+YOKOHAMA                  | YOKOHAMA                  | 0.9999	True
+DUELERHP                  | DUELERHP                  | 0.9973	True
+MICHELIN                  | MICHELIN                  | 0.9999	True
+22545ZR16                 | 22545ZR18                 | 0.9999	False
+--------------------------------------------------------------------------------
+[6000/300000] Train loss: 0.00363, Valid loss: 0.58553, Elapsed_time: 1083.16350
+Current_accuracy : 82.269, Current_norm_ED  : 0.94
+Best_accuracy    : 82.269, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+4520                      | 4520                      | 0.9999	True
+HANKOOK                   | HANKOOK                   | 1.0000	True
+105V                      | 105V                      | 1.0000	True
+22565R16                  | 10565R16                  | 0.9679	False
+24575R17                  | 24575R17                  | 0.9989	True
+--------------------------------------------------------------------------------
+[8000/300000] Train loss: 0.00351, Valid loss: 0.58424, Elapsed_time: 1442.07406
+Current_accuracy : 82.297, Current_norm_ED  : 0.94
+Best_accuracy    : 82.297, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+YOKOHAMA                  | YOKOHAMA                  | 1.0000	True
+PRIMACY3ST                | PRIMACY3ST                | 1.0000	True
+102H                      | 102H                      | 0.9203	True
+ECOPIAEP150               | ECOPIMAX455               | 0.1521	False
+102T                      | 102T                      | 0.9978	True
+--------------------------------------------------------------------------------
+[10000/300000] Train loss: 0.00341, Valid loss: 0.58386, Elapsed_time: 1802.74463
+Current_accuracy : 82.322, Current_norm_ED  : 0.94
+Best_accuracy    : 82.322, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+ILINK                     | PINEONK                   | 0.3087	False
+21555R17                  | 21556R17                  | 0.6058	False
+9593S                     | 9593S                     | 1.0000	True
+CONTINENTAL               | CONTINENTAL               | 1.0000	True
+MS                        | MS                        | 1.0000	True
+--------------------------------------------------------------------------------
+[12000/300000] Train loss: 0.00338, Valid loss: 0.58296, Elapsed_time: 2163.19352
+Current_accuracy : 82.351, Current_norm_ED  : 0.94
+Best_accuracy    : 82.351, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+98V                       | 98V                       | 0.9999	True
+23555R19                  | 23555R19                  | 0.9997	True
+25550R20                  | 25550R20                  | 1.0000	True
+22540R18                  | 22540R18                  | 1.0000	True
+20555R16                  | 20555R16                  | 1.0000	True
+--------------------------------------------------------------------------------
+[14000/300000] Train loss: 0.00328, Valid loss: 0.58131, Elapsed_time: 2523.07840
+Current_accuracy : 82.384, Current_norm_ED  : 0.94
+Best_accuracy    : 82.384, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+WARRIOR                   | WARRIOR                   | 0.9929	True
+ENRIU08                   | ENRIU08                   | 0.9931	True
+0522                      | 0522                      | 1.0000	True
+HANKOOK                   | HANKOOK                   | 1.0000	True
+BRIDGESTONE               | BRIDGESTONE               | 0.9996	True
+--------------------------------------------------------------------------------
+[16000/300000] Train loss: 0.00313, Valid loss: 0.57996, Elapsed_time: 2883.22806
+Current_accuracy : 82.413, Current_norm_ED  : 0.94
+Best_accuracy    : 82.413, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+X                         | X                         | 0.9999	True
+24535R19                  | 24535R19                  | 0.9999	True
+MS                        | MS                        | 1.0000	True
+97V                       | 87V                       | 0.6835	False
+SPSPORTD8H                | SPSPORTD55                | 0.5002	False
+--------------------------------------------------------------------------------
+[18000/300000] Train loss: 0.00300, Valid loss: 0.57885, Elapsed_time: 3242.86699
+Current_accuracy : 82.438, Current_norm_ED  : 0.94
+Best_accuracy    : 82.438, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+93Y                       | 93Y                       | 0.9998	True
+19565R15                  | 19565R15                  | 0.9999	True
+PIRELLI                   | PIRELLI                   | 0.9999	True
+CHARMHOO                  | CHARMHOO                  | 0.9990	True
+VENTUSS1EVO3              | VENTUSSERVO               | 0.1508	False
+--------------------------------------------------------------------------------
+[20000/300000] Train loss: 0.00292, Valid loss: 0.57710, Elapsed_time: 3601.62601
+Current_accuracy : 82.465, Current_norm_ED  : 0.94
+Best_accuracy    : 82.465, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+1619                      | 1619                      | 0.9999	True
+22545R18                  | 22545R18                  | 0.9998	True
+100W                      | 100W                      | 0.9999	True
+SPSPORTMAXX050            | MAHIIAX01                 | 0.0286	False
+RSC                       | RSC                       | 0.9999	True
+--------------------------------------------------------------------------------
+[22000/300000] Train loss: 0.00279, Valid loss: 0.57600, Elapsed_time: 3961.20910
+Current_accuracy : 82.498, Current_norm_ED  : 0.94
+Best_accuracy    : 82.498, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+LINGLONG                  | LINGLONG                  | 0.9998	True
+HPRX307                   | HPRX307                   | 0.9647	True
+L788                      | L788                      | 0.9990	True
+GRENLANDER                | GRENLANDER                | 0.9989	True
+RFT                       | RFT                       | 0.9997	True
+--------------------------------------------------------------------------------
+[24000/300000] Train loss: 0.00275, Valid loss: 0.57502, Elapsed_time: 4320.93979
+Current_accuracy : 82.529, Current_norm_ED  : 0.94
+Best_accuracy    : 82.529, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+PZERO                     | PZERO                     | 1.0000	True
+3221                      | 3221                      | 1.0000	True
+BRIDGESTONE               | BRIDGESTONE               | 0.9931	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+20555R17                  | 20555R17                  | 1.0000	True
+--------------------------------------------------------------------------------
+[26000/300000] Train loss: 0.00270, Valid loss: 0.57390, Elapsed_time: 4682.30649
+Current_accuracy : 82.551, Current_norm_ED  : 0.94
+Best_accuracy    : 82.551, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+1022                      | 1022                      | 1.0000	True
+22550R17                  | 22560R17                  | 0.9999	False
+23555R20                  | 25555R20                  | 0.9316	False
+MICHELIN                  | MICHELIN                  | 0.9999	True
+0422                      | 2423                      | 0.9093	False
+--------------------------------------------------------------------------------
+[28000/300000] Train loss: 0.00264, Valid loss: 0.57283, Elapsed_time: 5043.35534
+Current_accuracy : 82.576, Current_norm_ED  : 0.94
+Best_accuracy    : 82.576, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MICHELIN                  | MICHELIN                  | 1.0000	True
+27550R20                  | 27550R20                  | 0.9991	True
+NEXEN                     | NEXEN                     | 0.8496	True
+PRIMACY3ST                | PRIMACY3ST                | 0.9996	True
+98V                       | 98V                       | 0.5829	True
+--------------------------------------------------------------------------------
+[30000/300000] Train loss: 0.00252, Valid loss: 0.57100, Elapsed_time: 5404.24425
+Current_accuracy : 82.603, Current_norm_ED  : 0.94
+Best_accuracy    : 82.603, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+100H                      | 100H                      | 1.0000	True
+24550R19                  | 24550R19                  | 1.0000	True
+23565R18                  | 23565R10                  | 0.6323	False
+BLUEARTH                  | BLUEARTH                  | 1.0000	True
+ASSURANCE                 | ASSURANCE                 | 0.9969	True
+--------------------------------------------------------------------------------
+[32000/300000] Train loss: 0.00241, Valid loss: 0.56985, Elapsed_time: 5765.14668
+Current_accuracy : 82.630, Current_norm_ED  : 0.94
+Best_accuracy    : 82.630, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+GOODYEAR                  | GOODYEAR                  | 1.0000	True
+22560R17                  | 22560R17                  | 1.0000	True
+22555ZR17                 | 22555ZR17                 | 1.0000	True
+100V                      | 100V                      | 1.0000	True
+MS                        | MS                        | 1.0000	True
+--------------------------------------------------------------------------------
+[34000/300000] Train loss: 0.00230, Valid loss: 0.56892, Elapsed_time: 6124.12553
+Current_accuracy : 82.657, Current_norm_ED  : 0.94
+Best_accuracy    : 82.657, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+91V                       | 91V                       | 1.0000	True
+99V                       | 99V                       | 1.0000	True
+NEXEN                     | NGOEEN                    | 0.6456	False
+GITI                      | GITI                      | 1.0000	True
+HANKOOK                   | HANKOOK                   | 1.0000	True
+--------------------------------------------------------------------------------
+[36000/300000] Train loss: 0.00212, Valid loss: 0.56744, Elapsed_time: 6484.09204
+Current_accuracy : 82.688, Current_norm_ED  : 0.94
+Best_accuracy    : 82.688, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+5120                      | 5120                      | 0.9999	True
+GRENLANDER                | GRENLANDER                | 0.9930	True
+PREMIUMCONTACT6           | POOMIMMCONTACT6           | 0.0910	False
+21560R17                  | 21560R17                  | 0.9962	True
+1623                      | 1623                      | 1.0000	True
+--------------------------------------------------------------------------------
+[38000/300000] Train loss: 0.00202, Valid loss: 0.56670, Elapsed_time: 6845.08019
+Current_accuracy : 82.710, Current_norm_ED  : 0.94
+Best_accuracy    : 82.710, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+3521                      | 3521                      | 1.0000	True
+ASSURANCE                 | ASSURANCE                 | 0.9430	True
+VICTRA510                 | VICTRAS10                 | 0.4743	False
+A                         | A                         | 1.0000	True
+MS                        | MS                        | 1.0000	True
+--------------------------------------------------------------------------------
+[40000/300000] Train loss: 0.00193, Valid loss: 0.56445, Elapsed_time: 7205.53443
+Current_accuracy : 82.780, Current_norm_ED  : 0.94
+Best_accuracy    : 82.780, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+PILOTSPORT4SUV            | PILOTSPORT4SUV            | 0.9995	True
+CHAOYANG                  | CHAOYANG                  | 0.6708	True
+PZERO                     | PZERO                     | 1.0000	True
+PREMIUMCONTACT83          | PREMIUMCONTACT5S          | 0.1489	False
+22555R17                  | 22555R17                  | 1.0000	True
+--------------------------------------------------------------------------------
+[42000/300000] Train loss: 0.00184, Valid loss: 0.56300, Elapsed_time: 7565.56543
+Current_accuracy : 82.805, Current_norm_ED  : 0.94
+Best_accuracy    : 82.805, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+25555R20                  | 25555R20                  | 1.0000	True
+ASSURANCE                 | ASSURANCE                 | 0.9804	True
+X                         | X                         | 1.0000	True
+MS                        | MS                        | 1.0000	True
+PRIMACY4                  | PRIMACY4                  | 1.0000	True
+--------------------------------------------------------------------------------
+[44000/300000] Train loss: 0.00181, Valid loss: 0.56157, Elapsed_time: 7925.50747
+Current_accuracy : 82.863, Current_norm_ED  : 0.94
+Best_accuracy    : 82.863, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+95Y                       | 95Y                       | 1.0000	True
+9593S                     | 9593S                     | 0.9999	True
+23550R19                  | 23550R19                  | 1.0000	True
+22565R17                  | 22565R17                  | 1.0000	True
+22550R17                  | 22550R17                  | 1.0000	True
+--------------------------------------------------------------------------------
+[46000/300000] Train loss: 0.00177, Valid loss: 0.56067, Elapsed_time: 8285.36412
+Current_accuracy : 82.885, Current_norm_ED  : 0.94
+Best_accuracy    : 82.885, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+23565R18                  | 23565R18                  | 1.0000	True
+MS                        | MS                        | 1.0000	True
+ENRIU08                   | ENRIU08                   | 0.9742	True
+YOKOHAMA                  | YOKOHAMA                  | 0.9999	True
+96Y                       | 96Y                       | 0.6444	True
+--------------------------------------------------------------------------------
+[48000/300000] Train loss: 0.00173, Valid loss: 0.55928, Elapsed_time: 8645.75694
+Current_accuracy : 82.905, Current_norm_ED  : 0.94
+Best_accuracy    : 82.905, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MS                        | MS                        | 1.0000	True
+18565R14                  | 18565R14                  | 0.5132	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+BRIDGESTONE               | BIDCENHONE                | 0.0680	False
+MICHELIN                  | MCEEN                     | 0.3802	False
+--------------------------------------------------------------------------------
+[50000/300000] Train loss: 0.00161, Valid loss: 0.55797, Elapsed_time: 9005.27666
+Current_accuracy : 82.933, Current_norm_ED  : 0.93
+Best_accuracy    : 82.933, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+ENERGYXM2                 | ENERGYXM2                 | 0.9153	True
+HANKOOK                   | HANKOOK                   | 0.9997	True
+LINGLONG                  | LINGLONG                  | 0.9996	True
+19565R15                  | 19565R15                  | 0.9993	True
+MS                        | MS                        | 0.9999	True
+--------------------------------------------------------------------------------
+[52000/300000] Train loss: 0.00157, Valid loss: 0.55763, Elapsed_time: 9364.53414
+Current_accuracy : 82.964, Current_norm_ED  : 0.94
+Best_accuracy    : 82.964, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+22560R18                  | 22560R18                  | 0.9995	True
+tronsecnder702            | TRANTERTCORTE             | 0.0148	False
+20555R17                  | 20555R17                  | 1.0000	True
+23555R17                  | 23555R17                  | 0.9999	True
+ADVANZTECH                | ADLANZTECH                | 0.5199	False
+--------------------------------------------------------------------------------
+[54000/300000] Train loss: 0.00144, Valid loss: 0.55655, Elapsed_time: 9724.11115
+Current_accuracy : 82.985, Current_norm_ED  : 0.94
+Best_accuracy    : 82.985, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+21560R16                  | 21560R16                  | 1.0000	True
+HANKOOK                   | HANKOOK                   | 1.0000	True
+GOODYEAR                  | GOODY1T                   | 0.1788	False
+20555R16                  | 20555R16                  | 1.0000	True
+BLUEARTHXTAE61            | BLLEARTHXT                | 0.3786	False
+--------------------------------------------------------------------------------
+[56000/300000] Train loss: 0.00131, Valid loss: 0.55507, Elapsed_time: 10083.69764
+Current_accuracy : 83.010, Current_norm_ED  : 0.94
+Best_accuracy    : 83.010, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+100V                      | 100V                      | 1.0000	True
+GOODYEAR                  | GOODYEAR                  | 1.0000	True
+26555R16                  | 20565R16                  | 0.9465	False
+SCORPIONVERDE             | SCORPIONVERDE             | 0.9988	True
+EFFICIENTGRIPSUV          | EFFICIENTGRIPPRV          | 0.3106	False
+--------------------------------------------------------------------------------
+[58000/300000] Train loss: 0.00122, Valid loss: 0.55336, Elapsed_time: 10442.41905
+Current_accuracy : 83.088, Current_norm_ED  : 0.94
+Best_accuracy    : 83.088, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+26540R22                  | 26540R22                  | 0.9995	True
+GITI                      | GITI                      | 1.0000	True
+DONGFENG                  | DONGFENG                  | 0.9996	True
+HANKOOK                   | HANKOOK                   | 1.0000	True
+2624                      | 2624                      | 0.9993	True
+--------------------------------------------------------------------------------
+[60000/300000] Train loss: 0.00103, Valid loss: 0.55211, Elapsed_time: 10801.77334
+Current_accuracy : 83.122, Current_norm_ED  : 0.94
+Best_accuracy    : 83.122, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+3523                      | 3523                      | 1.0000	True
+185R14LT                  | 185R14LT                  | 0.9988	True
+PREMIUMCONTACT83          | PREMIUMCONTACT255         | 0.1371	False
+DUNLOP                    | DUNLOP                    | 1.0000	True
+HANKOOK                   | HANKOOK                   | 1.0000	True
+--------------------------------------------------------------------------------
+[62000/300000] Train loss: 0.00096, Valid loss: 0.55100, Elapsed_time: 11160.17011
+Current_accuracy : 83.150, Current_norm_ED  : 0.94
+Best_accuracy    : 83.150, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MICHELIN                  | MICELIN                   | 0.3777	False
+MAXXIS771                 | MAXXIS170                 | 0.1231	False
+A                         | A                         | 1.0000	True
+91W                       | 97W                       | 0.9999	False
+23550R19                  | 23550R19                  | 1.0000	True
+--------------------------------------------------------------------------------
+[64000/300000] Train loss: 0.00092, Valid loss: 0.54970, Elapsed_time: 11520.71783
+Current_accuracy : 83.182, Current_norm_ED  : 0.94
+Best_accuracy    : 83.182, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+CONTINENTAL               | CONTINENTAL               | 1.0000	True
+84H                       | 84H                       | 1.0000	True
+100Y                      | 100Y                      | 1.0000	True
+95Y                       | 95Y                       | 1.0000	True
+XM1                       | XXM1                      | 0.8776	False
+--------------------------------------------------------------------------------
+[66000/300000] Train loss: 0.00091, Valid loss: 0.54875, Elapsed_time: 11882.06734
+Current_accuracy : 83.208, Current_norm_ED  : 0.94
+Best_accuracy    : 83.208, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+BRIDGESTONE               | BRIDGESTONE               | 0.9999	True
+DS09                      | DS09                      | 0.9999	True
+8222                      | 3222                      | 1.0000	False
+1921                      | 1921                      | 1.0000	True
+107103R                   | 107103R                   | 0.9999	True
+--------------------------------------------------------------------------------
+[68000/300000] Train loss: 0.00090, Valid loss: 0.54701, Elapsed_time: 12241.23846
+Current_accuracy : 83.247, Current_norm_ED  : 0.94
+Best_accuracy    : 83.247, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+113111R                   | 113115R                   | 0.7410	False
+MICHELIN                  | MICHELIN                  | 1.0000	True
+ROADSTONE                 | ROADSTONE                 | 0.9947	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+1522                      | 1522                      | 1.0000	True
+--------------------------------------------------------------------------------
+[70000/300000] Train loss: 0.00090, Valid loss: 0.54561, Elapsed_time: 12599.74022
+Current_accuracy : 83.293, Current_norm_ED  : 0.94
+Best_accuracy    : 83.293, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+24545R18                  | 24545R18                  | 1.0000	True
+91V                       | 91V                       | 1.0000	True
+BRIDGESTONE               | BRIDGESTONE               | 1.0000	True
+EP150                     | EP150                     | 0.9999	True
+95Y                       | 95Y                       | 0.9885	True
+--------------------------------------------------------------------------------
+[72000/300000] Train loss: 0.00088, Valid loss: 0.54496, Elapsed_time: 12958.61582
+Current_accuracy : 83.346, Current_norm_ED  : 0.95
+Best_accuracy    : 83.346, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+PILOTSPORT4SUV            | PILOTSPORT4SUV            | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+ELEET                     | ELEET                     | 1.0000	True
+EFFICIENTGRIP             | EFFICIENTGRIP             | 1.0000	True
+24550R18                  | 20550R18                  | 0.6671	False
+--------------------------------------------------------------------------------
+[74000/300000] Train loss: 0.00085, Valid loss: 0.54425, Elapsed_time: 13318.56787
+Current_accuracy : 83.369, Current_norm_ED  : 0.94
+Best_accuracy    : 83.369, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+23550R19                  | 23550R19                  | 1.0000	True
+WESTLAKE                  | DUESTRXXE                 | 0.2482	False
+28545R20                  | 28545R20                  | 0.9999	True
+91V                       | 91V                       | 0.9995	True
+103V                      | 109V                      | 1.0000	False
+--------------------------------------------------------------------------------
+[76000/300000] Train loss: 0.00086, Valid loss: 0.54346, Elapsed_time: 13677.59459
+Current_accuracy : 83.401, Current_norm_ED  : 0.94
+Best_accuracy    : 83.401, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+GOODYEAR                  | GOODYEAR                  | 1.0000	True
+RFT                       | RFT                       | 0.5245	True
+96H                       | 96H                       | 1.0000	True
+100V                      | 100V                      | 0.9992	True
+91H                       | 91H                       | 1.0000	True
+--------------------------------------------------------------------------------
+[78000/300000] Train loss: 0.00082, Valid loss: 0.54346, Elapsed_time: 14037.06383
+Current_accuracy : 83.443, Current_norm_ED  : 0.94
+Best_accuracy    : 83.443, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+ELEET                     | ELEET                     | 0.9998	True
+87V                       | 87V                       | 0.9305	True
+27545R20                  | 27545R20                  | 1.0000	True
+RAPID                     | RAPID                     | 1.0000	True
+MS                        | MS                        | 1.0000	True
+--------------------------------------------------------------------------------
+[80000/300000] Train loss: 0.00081, Valid loss: 0.54307, Elapsed_time: 14396.96943
+Current_accuracy : 83.455, Current_norm_ED  : 0.94
+Best_accuracy    : 83.455, Best_norm_ED     : 0.94
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+93Y                       | 99Y                       | 0.9967	False
+20555R16                  | 20555R16                  | 0.9999	True
+100W                      | 100W                      | 1.0000	True
+18560R15                  | 18560R15                  | 1.0000	True
+88T                       | 88T                       | 1.0000	True
+--------------------------------------------------------------------------------
+[82000/300000] Train loss: 0.00080, Valid loss: 0.54274, Elapsed_time: 14756.77499
+Current_accuracy : 83.484, Current_norm_ED  : 0.94
+Best_accuracy    : 83.484, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+21555ZT17                 | 21555ZR17                 | 1.0000	False
+3422                      | 3422                      | 1.0000	True
+0922                      | 0922                      | 1.0000	True
+COOPER                    | COOPEP                    | 0.9992	False
+21550R18                  | 21550R18                  | 0.9881	True
+--------------------------------------------------------------------------------
+[84000/300000] Train loss: 0.00079, Valid loss: 0.54141, Elapsed_time: 15116.46781
+Current_accuracy : 83.530, Current_norm_ED  : 0.94
+Best_accuracy    : 83.530, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+SQPLUSHS63                | SQLUSHS63                 | 0.5478	False
+MAXXIS                    | MAXXS5                    | 0.4699	False
+GOODYEAR                  | GOODYEAR                  | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+0820                      | 0320                      | 0.9999	False
+--------------------------------------------------------------------------------
+[86000/300000] Train loss: 0.00078, Valid loss: 0.54069, Elapsed_time: 15476.11302
+Current_accuracy : 83.550, Current_norm_ED  : 0.94
+Best_accuracy    : 83.550, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MICHELIN                  | MICHELIN                  | 1.0000	True
+PRIMACY4                  | PRIMACY4                  | 1.0000	True
+104H                      | 104H                      | 1.0000	True
+MS                        | MS                        | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+--------------------------------------------------------------------------------
+[88000/300000] Train loss: 0.00078, Valid loss: 0.53952, Elapsed_time: 15835.57370
+Current_accuracy : 83.564, Current_norm_ED  : 0.94
+Best_accuracy    : 83.564, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+3724                      | 3724                      | 1.0000	True
+YOKOHAMA                  | YOKOHAMA                  | 0.9999	True
+24575R17                  | 24575R17                  | 0.9997	True
+23560R19                  | 23560R16                  | 0.9998	False
+TURANZAT005               | TURANMAT00                | 0.3623	False
+--------------------------------------------------------------------------------
+[90000/300000] Train loss: 0.00072, Valid loss: 0.53807, Elapsed_time: 16195.59527
+Current_accuracy : 83.601, Current_norm_ED  : 0.94
+Best_accuracy    : 83.601, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+1223                      | 1223                      | 1.0000	True
+26555R16                  | 20555R16                  | 0.4240	False
+MICHELIN                  | M0110N                    | 0.1502	False
+22545ZR18                 | 22545ZR18                 | 0.9992	True
+25550R20                  | 25550R20                  | 1.0000	True
+--------------------------------------------------------------------------------
+[92000/300000] Train loss: 0.00070, Valid loss: 0.53606, Elapsed_time: 16555.17557
+Current_accuracy : 83.689, Current_norm_ED  : 0.94
+Best_accuracy    : 83.689, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+GS39HT                    | GS35AH                    | 0.0681	False
+22545R18                  | 22545R18                  | 1.0000	True
+FULDA                     | FULDA                     | 1.0000	True
+GRANDTREK                 | GRANDTRE7                 | 0.3041	False
+4221                      | 4221                      | 1.0000	True
+--------------------------------------------------------------------------------
+[94000/300000] Train loss: 0.00068, Valid loss: 0.53424, Elapsed_time: 16914.79470
+Current_accuracy : 83.713, Current_norm_ED  : 0.94
+Best_accuracy    : 83.713, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+20555R16                  | 20555R16                  | 1.0000	True
+PIRELLI                   | PIRELLI                   | 1.0000	True
+runflat                   | runflat                   | 0.9999	True
+1121                      | 118Y                      | 0.9489	False
+1023                      | 1023                      | 1.0000	True
+--------------------------------------------------------------------------------
+[96000/300000] Train loss: 0.00066, Valid loss: 0.53248, Elapsed_time: 17274.07611
+Current_accuracy : 83.805, Current_norm_ED  : 0.94
+Best_accuracy    : 83.805, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+94W                       | 94W                       | 1.0000	True
+20560R16                  | 20560R16                  | 1.0000	True
+PIRELLI                   | PIRELLI                   | 1.0000	True
+23550R19                  | 23550R19                  | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+--------------------------------------------------------------------------------
+[98000/300000] Train loss: 0.00066, Valid loss: 0.53107, Elapsed_time: 17633.40056
+Current_accuracy : 83.855, Current_norm_ED  : 0.94
+Best_accuracy    : 83.855, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+20570R15                  | 20570R15                  | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+BRIDGESTONE               | BRIDGESTONE               | 1.0000	True
+81T                       | 81T                       | 0.9384	True
+A                         | AS                        | 0.5196	False
+--------------------------------------------------------------------------------
+[100000/300000] Train loss: 0.00064, Valid loss: 0.53110, Elapsed_time: 17992.87166
+Current_accuracy : 83.959, Current_norm_ED  : 0.95
+Best_accuracy    : 83.959, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+4521                      | 4521                      | 1.0000	True
+1723                      | 1723                      | 0.9991	True
+MS                        | MS                        | 1.0000	True
+102H                      | 102H                      | 1.0000	True
+95W                       | 95W                       | 1.0000	True
+--------------------------------------------------------------------------------
+[102000/300000] Train loss: 0.00064, Valid loss: 0.53086, Elapsed_time: 18353.53357
+Current_accuracy : 83.985, Current_norm_ED  : 0.94
+Best_accuracy    : 83.985, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+101W                      | 101W                      | 0.9998	True
+BRIDGESTONE               | BRIDGESTONE               | 0.9999	True
+81T                       | 81V                       | 0.5952	False
+X                         | X                         | 1.0000	True
+HANKOOK                   | HANKOOK                   | 1.0000	True
+--------------------------------------------------------------------------------
+[104000/300000] Train loss: 0.00062, Valid loss: 0.53005, Elapsed_time: 18713.00943
+Current_accuracy : 84.005, Current_norm_ED  : 0.94
+Best_accuracy    : 84.005, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+2818                      | 2818                      | 1.0000	True
+LATITUDESPORT             | LATITUDESORT              | 0.1684	False
+2820                      | 2820                      | 1.0000	True
+3824                      | 3824                      | 1.0000	True
+21555R18                  | 21555R18                  | 1.0000	True
+--------------------------------------------------------------------------------
+[106000/300000] Train loss: 0.00062, Valid loss: 0.52973, Elapsed_time: 19072.84405
+Current_accuracy : 84.034, Current_norm_ED  : 0.94
+Best_accuracy    : 84.034, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+17565R14                  | 23565R16                  | 0.4078	False
+MICHELIN                  | MICHELIN                  | 1.0000	True
+23550R17                  | 23550R17                  | 1.0000	True
+PIRELLI                   | PIRELLI                   | 1.0000	True
+91V                       | 91V                       | 0.9891	True
+--------------------------------------------------------------------------------
+[108000/300000] Train loss: 0.00062, Valid loss: 0.52858, Elapsed_time: 19432.39371
+Current_accuracy : 84.068, Current_norm_ED  : 0.94
+Best_accuracy    : 84.068, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+185R15LT                  | 185R15LT                  | 0.9999	True
+97H                       | 97H                       | 1.0000	True
+27540R20                  | 27540R20                  | 1.0000	True
+GOODYEAR                  | GOODYEAR                  | 1.0000	True
+1024                      | 1124                      | 0.7002	False
+--------------------------------------------------------------------------------
+[110000/300000] Train loss: 0.00062, Valid loss: 0.52743, Elapsed_time: 19792.23834
+Current_accuracy : 84.092, Current_norm_ED  : 0.94
+Best_accuracy    : 84.092, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+GITI                      | GITI                      | 1.0000	True
+20555R16                  | 20555R16                  | 1.0000	True
+2319                      | 2319                      | 1.0000	True
+91H                       | 91H                       | 1.0000	True
+CNTTGLS                   | CNTTALS                   | 0.4584	False
+--------------------------------------------------------------------------------
+[112000/300000] Train loss: 0.00062, Valid loss: 0.52684, Elapsed_time: 20152.48199
+Current_accuracy : 84.112, Current_norm_ED  : 0.94
+Best_accuracy    : 84.112, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+ENASAVEEC300              | ENASAVEEC300              | 0.9997	True
+GOODYEAR                  | GOODYEAR                  | 1.0000	True
+94H                       | 94H                       | 1.0000	True
+18560R15                  | 18560R15                  | 1.0000	True
+KUMHO                     | KUMHO                     | 1.0000	True
+--------------------------------------------------------------------------------
+[114000/300000] Train loss: 0.00062, Valid loss: 0.52613, Elapsed_time: 20512.07340
+Current_accuracy : 84.134, Current_norm_ED  : 0.95
+Best_accuracy    : 84.134, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MICHELIN                  | MICHELIN                  | 1.0000	True
+2624                      | 2624                      | 0.9879	True
+101V                      | 101V                      | 1.0000	True
+20560R16                  | 20560R16                  | 1.0000	True
+MS                        | MS                        | 1.0000	True
+--------------------------------------------------------------------------------
+[116000/300000] Train loss: 0.00061, Valid loss: 0.52603, Elapsed_time: 20872.07674
+Current_accuracy : 84.154, Current_norm_ED  : 0.95
+Best_accuracy    : 84.154, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+99V                       | 99V                       | 1.0000	True
+23560R18                  | 23550R18                  | 0.9994	False
+109Y                      | 109Y                      | 1.0000	True
+2520                      | 2520                      | 1.0000	True
+PRIMACY                   | PRIMACY4                  | 1.0000	False
+--------------------------------------------------------------------------------
+[118000/300000] Train loss: 0.00061, Valid loss: 0.52679, Elapsed_time: 21231.93437
+Current_accuracy : 84.151, Current_norm_ED  : 0.94
+Best_accuracy    : 84.151, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+SCORPIONVERDE             | SCORPIONVERDE             | 0.9988	True
+PIRELLI                   | PIRELLI                   | 1.0000	True
+ROTATION                  | 9ONTION                   | 0.8194	False
+MS                        | MS                        | 1.0000	True
+22555ZR17                 | 22555ZR17                 | 0.9952	True
+--------------------------------------------------------------------------------
+[120000/300000] Train loss: 0.00061, Valid loss: 0.52610, Elapsed_time: 21591.99297
+Current_accuracy : 84.159, Current_norm_ED  : 0.95
+Best_accuracy    : 84.159, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+101V                      | 101V                      | 1.0000	True
+89H                       | 89H                       | 1.0000	True
+20565R16                  | 20565R16                  | 0.9996	True
+MS                        | MS                        | 1.0000	True
+CINTURATOP7               | CINTIRATOP7               | 0.8344	False
+--------------------------------------------------------------------------------
+[122000/300000] Train loss: 0.00061, Valid loss: 0.52502, Elapsed_time: 21951.90005
+Current_accuracy : 84.188, Current_norm_ED  : 0.94
+Best_accuracy    : 84.188, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+CHAOYANG                  | CHAOYANG                  | 1.0000	True
+22555R16                  | 22555R16                  | 0.7162	True
+ILINK                     | ILIREX                    | 0.1375	False
+PRIMACYSUV                | PRIMACYSUV                | 0.9558	True
+MS                        | MS                        | 1.0000	True
+--------------------------------------------------------------------------------
+[124000/300000] Train loss: 0.00060, Valid loss: 0.52430, Elapsed_time: 22311.70164
+Current_accuracy : 84.226, Current_norm_ED  : 0.94
+Best_accuracy    : 84.226, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+100V                      | 100V                      | 1.0000	True
+25550R20                  | 25550R20                  | 1.0000	True
+23550R19                  | 23550R19                  | 1.0000	True
+101W                      | 101W                      | 1.0000	True
+91W                       | 91W                       | 1.0000	True
+--------------------------------------------------------------------------------
+[126000/300000] Train loss: 0.00060, Valid loss: 0.52390, Elapsed_time: 22670.61935
+Current_accuracy : 84.272, Current_norm_ED  : 0.94
+Best_accuracy    : 84.272, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+1824                      | 1824                      | 1.0000	True
+22555R17                  | 22555R17                  | 1.0000	True
+DUNLOP                    | DUNLOP                    | 0.9813	True
+91V                       | 91V                       | 1.0000	True
+YOKOHAMA                  | YOKOHAMA                  | 1.0000	True
+--------------------------------------------------------------------------------
+[128000/300000] Train loss: 0.00058, Valid loss: 0.52209, Elapsed_time: 23028.65001
+Current_accuracy : 84.280, Current_norm_ED  : 0.94
+Best_accuracy    : 84.280, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MA656                     | MA656                     | 0.9322	True
+GOODYEAR                  | GOODYEAR                  | 0.9999	True
+22555R17                  | 22555R17                  | 1.0000	True
+MS                        | MS                        | 1.0000	True
+85T                       | 86T                       | 0.9996	False
+--------------------------------------------------------------------------------
+[130000/300000] Train loss: 0.00055, Valid loss: 0.52009, Elapsed_time: 23387.88871
+Current_accuracy : 84.280, Current_norm_ED  : 0.94
+Best_accuracy    : 84.280, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+23560R18                  | 23560R18                  | 1.0000	True
+4521                      | 4521                      | 1.0000	True
+0115                      | 0115                      | 0.9991	True
+1624                      | 1424                      | 0.9824	False
+99H                       | 99H                       | 1.0000	True
+--------------------------------------------------------------------------------
+[132000/300000] Train loss: 0.00052, Valid loss: 0.51858, Elapsed_time: 23748.02319
+Current_accuracy : 84.338, Current_norm_ED  : 0.95
+Best_accuracy    : 84.338, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+CONTINENTAL               | CONTINENTAL               | 1.0000	True
+25545R20                  | 25545R20                  | 1.0000	True
+23555R18                  | 23555R18                  | 1.0000	True
+MS                        | MS                        | 1.0000	True
+TURANZAER370              | TURANZAER370              | 0.9757	True
+--------------------------------------------------------------------------------
+[134000/300000] Train loss: 0.00051, Valid loss: 0.51640, Elapsed_time: 24107.54173
+Current_accuracy : 84.363, Current_norm_ED  : 0.95
+Best_accuracy    : 84.363, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+96H                       | 96H                       | 1.0000	True
+GOODYEAR                  | GOODYEAR                  | 1.0000	True
+0223                      | 0223                      | 1.0000	True
+96Y                       | 96Y                       | 0.9678	True
+21555R16                  | 21555R16                  | 1.0000	True
+--------------------------------------------------------------------------------
+[136000/300000] Train loss: 0.00051, Valid loss: 0.51498, Elapsed_time: 24466.55455
+Current_accuracy : 84.317, Current_norm_ED  : 0.95
+Best_accuracy    : 84.338, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+99V                       | 99V                       | 1.0000	True
+HANKOOK                   | HANKOOK                   | 1.0000	True
+YOKOHAMA                  | YOKOHAMA                  | 1.0000	True
+99V                       | 99V                       | 1.0000	True
+HANKOOK                   | HANKOOK                   | 1.0000	True
+--------------------------------------------------------------------------------
+[138000/300000] Train loss: 0.00050, Valid loss: 0.51299, Elapsed_time: 24825.61798
+Current_accuracy : 84.334, Current_norm_ED  : 0.95
+Best_accuracy    : 84.338, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+22560R18                  | 22560R18                  | 1.0000	True
+81T                       | 81T                       | 1.0000	True
+22545ZR17                 | 22545ZR17                 | 1.0000	True
+94W                       | 94W                       | 1.0000	True
+95935                     | 9593S                     | 1.0000	False
+--------------------------------------------------------------------------------
+[140000/300000] Train loss: 0.00050, Valid loss: 0.51087, Elapsed_time: 25184.04755
+Current_accuracy : 84.372, Current_norm_ED  : 0.95
+Best_accuracy    : 84.372, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MICHELIN                  | MICHELIN                  | 1.0000	True
+HANKOOK                   | HANKOOK                   | 1.0000	True
+MS                        | MS                        | 1.0000	True
+X                         | X                         | 1.0000	True
+3024                      | 3024                      | 1.0000	True
+--------------------------------------------------------------------------------
+[142000/300000] Train loss: 0.00049, Valid loss: 0.50943, Elapsed_time: 25542.79247
+Current_accuracy : 84.342, Current_norm_ED  : 0.94
+Best_accuracy    : 84.372, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+2824                      | 2824                      | 1.0000	True
+16570R14                  | 16570R14                  | 1.0000	True
+MS                        | MS                        | 1.0000	True
+ENERGYXM2                 | ENERGYXM2                 | 0.9999	True
+16570R14                  | 16570R14                  | 1.0000	True
+--------------------------------------------------------------------------------
+[144000/300000] Train loss: 0.00049, Valid loss: 0.50889, Elapsed_time: 25901.38662
+Current_accuracy : 84.380, Current_norm_ED  : 0.95
+Best_accuracy    : 84.380, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+HANKOOK                   | HANKOOK                   | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+ROADSTONE                 | ROADSTONE                 | 0.9503	True
+MS                        | MS                        | 1.0000	True
+--------------------------------------------------------------------------------
+[146000/300000] Train loss: 0.00048, Valid loss: 0.50715, Elapsed_time: 26259.17585
+Current_accuracy : 84.389, Current_norm_ED  : 0.94
+Best_accuracy    : 84.389, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+3822                      | 3822                      | 1.0000	True
+23550R20                  | 23550R20                  | 0.9999	True
+96H                       | 96H                       | 1.0000	True
+GOODYEAR                  | GOODYEAR                  | 1.0000	True
+22545R17                  | 22545R17                  | 1.0000	True
+--------------------------------------------------------------------------------
+[148000/300000] Train loss: 0.00047, Valid loss: 0.50645, Elapsed_time: 26617.71202
+Current_accuracy : 84.430, Current_norm_ED  : 0.94
+Best_accuracy    : 84.430, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+BLUEARTHE70               | BLUEARTHE70               | 0.9999	True
+22550R17                  | 22550R17                  | 1.0000	True
+22550R17                  | 22550R17                  | 0.9999	True
+GOODYEAR                  | GOODYEAR                  | 1.0000	True
+101W                      | 101V                      | 0.6134	False
+--------------------------------------------------------------------------------
+[150000/300000] Train loss: 0.00046, Valid loss: 0.50517, Elapsed_time: 26976.73374
+Current_accuracy : 84.455, Current_norm_ED  : 0.94
+Best_accuracy    : 84.455, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+91V                       | 91V                       | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+101W                      | 104V                      | 0.6634	False
+3320                      | 3320                      | 1.0000	True
+BLUEARTH                  | BLUEARTH                  | 1.0000	True
+--------------------------------------------------------------------------------
+[152000/300000] Train loss: 0.00045, Valid loss: 0.50398, Elapsed_time: 27335.58862
+Current_accuracy : 84.435, Current_norm_ED  : 0.94
+Best_accuracy    : 84.455, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MICHELIN                  | MICHELIN                  | 1.0000	True
+23555RF19                 | 2255RRF19                 | 0.5282	False
+23545R18                  | 23545R18                  | 1.0000	True
+24555R19                  | 24555R19                  | 1.0000	True
+21560R17                  | 21560R17                  | 0.9999	True
+--------------------------------------------------------------------------------
+[154000/300000] Train loss: 0.00043, Valid loss: 0.50294, Elapsed_time: 27693.74664
+Current_accuracy : 84.480, Current_norm_ED  : 0.94
+Best_accuracy    : 84.480, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+HANKOOK                   | HANKOOK                   | 0.9264	True
+GOPRO                     | GOPRO                     | 0.9984	True
+X                         | X                         | 1.0000	True
+T0                        | T0                        | 1.0000	True
+VENTUSS1EVO2SUV           | VENTUSS1EVO3SUV           | 0.9592	False
+--------------------------------------------------------------------------------
+[156000/300000] Train loss: 0.00043, Valid loss: 0.50223, Elapsed_time: 28052.78866
+Current_accuracy : 84.498, Current_norm_ED  : 0.94
+Best_accuracy    : 84.498, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+1819                      | 1819                      | 1.0000	True
+99V                       | 99V                       | 1.0000	True
+22565R17                  | 22565R17                  | 1.0000	True
+22565R17                  | 22565R17                  | 1.0000	True
+97V                       | 97V                       | 1.0000	True
+--------------------------------------------------------------------------------
+[158000/300000] Train loss: 0.00042, Valid loss: 0.50133, Elapsed_time: 28412.67964
+Current_accuracy : 84.508, Current_norm_ED  : 0.94
+Best_accuracy    : 84.508, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+4223                      | 4223                      | 1.0000	True
+0123                      | 0123                      | 1.0000	True
+ADVANZTECH                | ADVANZTECH                | 0.9230	True
+20555R16                  | 20555R16                  | 1.0000	True
+20555R17                  | 20555R17                  | 1.0000	True
+--------------------------------------------------------------------------------
+[160000/300000] Train loss: 0.00042, Valid loss: 0.50163, Elapsed_time: 28773.32681
+Current_accuracy : 84.509, Current_norm_ED  : 0.95
+Best_accuracy    : 84.509, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MS                        | MS                        | 1.0000	True
+81T                       | 81H                       | 0.6890	False
+111Y                      | 111Y                      | 0.9232	True
+24545R19                  | 24545R19                  | 1.0000	True
+24545R19                  | 24545R19                  | 1.0000	True
+--------------------------------------------------------------------------------
+[162000/300000] Train loss: 0.00041, Valid loss: 0.50172, Elapsed_time: 29132.92718
+Current_accuracy : 84.575, Current_norm_ED  : 0.94
+Best_accuracy    : 84.575, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+24550R19                  | 24550R19                  | 1.0000	True
+21555R17                  | 21555R17                  | 1.0000	True
+GITI                      | SU                        | 0.3362	False
+19565R15                  | 19565R15                  | 0.9867	True
+GOODYEAR                  | GOODYEARS                 | 0.7388	False
+--------------------------------------------------------------------------------
+[164000/300000] Train loss: 0.00040, Valid loss: 0.50072, Elapsed_time: 29492.05102
+Current_accuracy : 84.604, Current_norm_ED  : 0.94
+Best_accuracy    : 84.604, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MS                        | MS                        | 1.0000	True
+20555R16                  | 20555R16                  | 1.0000	True
+GEOLANDARG91              | GEOLANDARG91              | 0.7310	True
+S001                      | S001                      | 0.6885	True
+23565R18                  | 23565R10                  | 0.5928	False
+--------------------------------------------------------------------------------
+[166000/300000] Train loss: 0.00039, Valid loss: 0.49941, Elapsed_time: 29851.32181
+Current_accuracy : 84.621, Current_norm_ED  : 0.95
+Best_accuracy    : 84.621, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+NEXEN                     | NEXEN                     | 1.0000	True
+2821                      | 2821                      | 1.0000	True
+PIRELLI                   | PIRELLI                   | 1.0000	True
+TURANZAT005               | TURANZAT00                | 0.9656	False
+PIRELLI                   | PIRELLI                   | 1.0000	True
+--------------------------------------------------------------------------------
+[168000/300000] Train loss: 0.00038, Valid loss: 0.49885, Elapsed_time: 30209.89715
+Current_accuracy : 84.696, Current_norm_ED  : 0.95
+Best_accuracy    : 84.696, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+25545R19                  | 25545R19                  | 1.0000	True
+23565R18                  | 23565R18                  | 1.0000	True
+CRUGENPREMIUM             | CRUGENPREMIUM             | 1.0000	True
+CONTINENTAL               | CIAINIOTIL                | 0.0255	False
+AS330                     | AS330                     | 1.0000	True
+--------------------------------------------------------------------------------
+[170000/300000] Train loss: 0.00037, Valid loss: 0.49841, Elapsed_time: 30568.42766
+Current_accuracy : 84.713, Current_norm_ED  : 0.94
+Best_accuracy    : 84.713, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+ASSURANCE                 | ASSURANCE                 | 1.0000	True
+4323                      | 4323                      | 1.0000	True
+2723                      | 2722                      | 0.5258	False
+HANKOOK                   | HANKOOK                   | 1.0000	True
+84H                       | 84H                       | 0.9997	True
+--------------------------------------------------------------------------------
+[172000/300000] Train loss: 0.00036, Valid loss: 0.49784, Elapsed_time: 30926.43156
+Current_accuracy : 84.717, Current_norm_ED  : 0.94
+Best_accuracy    : 84.717, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+PRIMACYSUV                | PRIMACYSUV                | 0.9999	True
+KUMHO                     | KUMHO                     | 1.0000	True
+1621                      | 1321                      | 0.9688	False
+EFFICIENTGRIPSUV          | EFFICIENTGRIPPSUV         | 0.9887	False
+GITI                      | GITI                      | 1.0000	True
+--------------------------------------------------------------------------------
+[174000/300000] Train loss: 0.00035, Valid loss: 0.49696, Elapsed_time: 31284.98263
+Current_accuracy : 84.735, Current_norm_ED  : 0.94
+Best_accuracy    : 84.735, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+108V                      | 108V                      | 0.9999	True
+ENERGYXM2                 | ENERGYXME                 | 0.6858	False
+GITICOMFORTSUV520         | MICERINEECOR50            | 0.0005	False
+98Y                       | 93V                       | 0.9948	False
+25555R18                  | 25555R18                  | 1.0000	True
+--------------------------------------------------------------------------------
+[176000/300000] Train loss: 0.00035, Valid loss: 0.49641, Elapsed_time: 31643.97019
+Current_accuracy : 84.764, Current_norm_ED  : 0.94
+Best_accuracy    : 84.764, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+94W                       | 94W                       | 0.9999	True
+GITI                      | GITI                      | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+22555R19                  | 22555R19                  | 1.0000	True
+102H                      | 102H                      | 1.0000	True
+--------------------------------------------------------------------------------
+[178000/300000] Train loss: 0.00035, Valid loss: 0.49434, Elapsed_time: 32002.64435
+Current_accuracy : 84.810, Current_norm_ED  : 0.94
+Best_accuracy    : 84.810, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+96H                       | 96H                       | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+5121                      | 5121                      | 1.0000	True
+PIRELLI                   | PIRELLI                   | 1.0000	True
+23555R19                  | 23555R19                  | 1.0000	True
+--------------------------------------------------------------------------------
+[180000/300000] Train loss: 0.00035, Valid loss: 0.49217, Elapsed_time: 32361.11323
+Current_accuracy : 84.822, Current_norm_ED  : 0.94
+Best_accuracy    : 84.822, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+21560R17                  | 21560R17                  | 1.0000	True
+GOODYEAR                  | GOODYEAR                  | 0.9999	True
+4621                      | 4621                      | 1.0000	True
+BRIDGESTONE               | BRIDGESTONE               | 1.0000	True
+22550R17                  | 22550R17                  | 1.0000	True
+--------------------------------------------------------------------------------
+[182000/300000] Train loss: 0.00034, Valid loss: 0.49127, Elapsed_time: 32718.59702
+Current_accuracy : 84.876, Current_norm_ED  : 0.94
+Best_accuracy    : 84.876, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+1624                      | 1624                      | 0.9986	True
+PRIMACY4                  | PRIMACY4                  | 1.0000	True
+BRIDGESTONE               | BRIDGESTONE               | 1.0000	True
+97V                       | 97V                       | 0.9995	True
+ULTRACONTACTUC6           | ULTRACONTACTAC6           | 0.4627	False
+--------------------------------------------------------------------------------
+[184000/300000] Train loss: 0.00034, Valid loss: 0.48993, Elapsed_time: 33076.58157
+Current_accuracy : 84.868, Current_norm_ED  : 0.94
+Best_accuracy    : 84.876, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+YOKOHAMA                  | YOKOHAMA                  | 1.0000	True
+22545R18                  | 22545R18                  | 1.0000	True
+STRATAEXCELRU06           | STRALDEACELRU0E           | 0.7679	False
+LINGLONG                  | LINGLONG                  | 1.0000	True
+21555ZR17                 | 21555ZR17                 | 1.0000	True
+--------------------------------------------------------------------------------
+[186000/300000] Train loss: 0.00033, Valid loss: 0.48878, Elapsed_time: 33435.47976
+Current_accuracy : 84.901, Current_norm_ED  : 0.94
+Best_accuracy    : 84.901, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+GOODYEAR                  | GOODYEAR                  | 1.0000	True
+HANKOOK                   | HANKOOK                   | 1.0000	True
+PRIMACYSUV                | PRIMACYSUV                | 1.0000	True
+27535R20                  | 27535R20                  | 0.9999	True
+101W                      | 101H                      | 0.9679	False
+--------------------------------------------------------------------------------
+[188000/300000] Train loss: 0.00033, Valid loss: 0.48873, Elapsed_time: 33793.67807
+Current_accuracy : 84.955, Current_norm_ED  : 0.94
+Best_accuracy    : 84.955, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+WH18                      | WH18                      | 0.9997	True
+3722                      | 3722                      | 1.0000	True
+17565R16                  | 17565R18                  | 0.9725	False
+EAGLEF1ASYMMETRIC3        | EAGLEF1ASYMMETRIC3        | 0.8082	True
+22560R18                  | 22560R18                  | 1.0000	True
+--------------------------------------------------------------------------------
+[190000/300000] Train loss: 0.00033, Valid loss: 0.48689, Elapsed_time: 34152.55389
+Current_accuracy : 84.930, Current_norm_ED  : 0.94
+Best_accuracy    : 84.955, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MICHELIN                  | MICHELIN                  | 1.0000	True
+GOODYEAR                  | GOODYEAR                  | 0.9983	True
+GOODYEAR                  | GOODYEAR                  | 1.0000	True
+102T                      | 102T                      | 0.9998	True
+ATLAS                     | ATLAS                     | 1.0000	True
+--------------------------------------------------------------------------------
+[192000/300000] Train loss: 0.00032, Valid loss: 0.48653, Elapsed_time: 34510.98637
+Current_accuracy : 84.959, Current_norm_ED  : 0.94
+Best_accuracy    : 84.959, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+2323                      | 2323                      | 1.0000	True
+0124                      | 0124                      | 1.0000	True
+SPTOURINGT1               | SPTOURINGT1               | 0.9109	True
+2620                      | 2620                      | 1.0000	True
+GITITAXI900               | GITITAXI900               | 0.9993	True
+--------------------------------------------------------------------------------
+[194000/300000] Train loss: 0.00031, Valid loss: 0.48519, Elapsed_time: 34870.42205
+Current_accuracy : 84.985, Current_norm_ED  : 0.93
+Best_accuracy    : 84.985, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MS                        | MS                        | 1.0000	True
+25545R21                  | 25545R21                  | 0.9999	True
+GOODYEAR                  | GOODYEAR                  | 1.0000	True
+TOURING                   | TOURIN                    | 0.9989	False
+91V                       | 91V                       | 1.0000	True
+--------------------------------------------------------------------------------
+[196000/300000] Train loss: 0.00031, Valid loss: 0.48437, Elapsed_time: 35229.26618
+Current_accuracy : 85.018, Current_norm_ED  : 0.94
+Best_accuracy    : 85.018, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+0323                      | 0323                      | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+MAXXIS                    | PAXXIS                    | 0.6080	False
+23560R18                  | 23550R18                  | 0.9999	False
+GOODYEAR                  | GOODYEAR                  | 1.0000	True
+--------------------------------------------------------------------------------
+[198000/300000] Train loss: 0.00031, Valid loss: 0.48320, Elapsed_time: 35588.25214
+Current_accuracy : 85.050, Current_norm_ED  : 0.94
+Best_accuracy    : 85.050, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+25545R20                  | 25545R20                  | 1.0000	True
+NAATS                     | MAATS                     | 0.6436	False
+103H                      | 103H                      | 1.0000	True
+23545R18                  | 23545R18                  | 0.9999	True
+21550R17                  | 21550R17                  | 1.0000	True
+--------------------------------------------------------------------------------
+[200000/300000] Train loss: 0.00030, Valid loss: 0.48119, Elapsed_time: 35946.25225
+Current_accuracy : 85.130, Current_norm_ED  : 0.95
+Best_accuracy    : 85.130, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MICHELIN                  | MICHELIN                  | 1.0000	True
+20555R18                  | 20555R16                  | 1.0000	False
+110T                      | 110T                      | 0.9999	True
+EAGLEF1ASYMMETRIC3        | EAGLEA11                  | 0.2651	False
+3116                      | 3116                      | 1.0000	True
+--------------------------------------------------------------------------------
+[202000/300000] Train loss: 0.00030, Valid loss: 0.48081, Elapsed_time: 36305.15401
+Current_accuracy : 85.177, Current_norm_ED  : 0.94
+Best_accuracy    : 85.177, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+98W                       | 98W                       | 0.9997	True
+102V                      | 102V                      | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+MS                        | MS                        | 1.0000	True
+103H                      | 103H                      | 1.0000	True
+--------------------------------------------------------------------------------
+[204000/300000] Train loss: 0.00029, Valid loss: 0.47988, Elapsed_time: 36663.03200
+Current_accuracy : 85.191, Current_norm_ED  : 0.94
+Best_accuracy    : 85.191, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+GOODYEAR                  | RESCORSER                 | 0.0115	False
+2818                      | 2818                      | 1.0000	True
+MAXXIS                    | MAXXIS                    | 1.0000	True
+99V                       | 99V                       | 1.0000	True
+96H                       | 96H                       | 1.0000	True
+--------------------------------------------------------------------------------
+[206000/300000] Train loss: 0.00028, Valid loss: 0.47827, Elapsed_time: 37021.37658
+Current_accuracy : 85.223, Current_norm_ED  : 0.94
+Best_accuracy    : 85.223, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+COOPER                    | COOPER                    | 1.0000	True
+GOODYEAR                  | GOODYEAR                  | 1.0000	True
+24550R20                  | 24550R20                  | 1.0000	True
+4119                      | 4119                      | 1.0000	True
+PERFORMANCE               | WODYSOMANCE               | 0.0579	False
+--------------------------------------------------------------------------------
+[208000/300000] Train loss: 0.00028, Valid loss: 0.47712, Elapsed_time: 37379.79249
+Current_accuracy : 85.226, Current_norm_ED  : 0.95
+Best_accuracy    : 85.226, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+PIRELLI                   | PIRELLI                   | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+5023                      | 5023                      | 1.0000	True
+GOODTRIP                  | GOODTRIP                  | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+--------------------------------------------------------------------------------
+[210000/300000] Train loss: 0.00027, Valid loss: 0.47654, Elapsed_time: 37737.84058
+Current_accuracy : 85.263, Current_norm_ED  : 0.95
+Best_accuracy    : 85.263, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+23550R18                  | 23550R18                  | 1.0000	True
+2323                      | 2323                      | 1.0000	True
+WILDTRACHT                | WILDTRACHT                | 0.9958	True
+24545R19                  | 21575R19                  | 0.8121	False
+CINTIRATOP7               | EITICON17                 | 0.2144	False
+--------------------------------------------------------------------------------
+[212000/300000] Train loss: 0.00026, Valid loss: 0.47494, Elapsed_time: 38096.23532
+Current_accuracy : 85.263, Current_norm_ED  : 0.94
+Best_accuracy    : 85.263, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+1619                      | 1619                      | 1.0000	True
+OUTSIDE                   | OUTSIDE                   | 1.0000	True
+4520                      | 4520                      | 1.0000	True
+RAPID                     | RAPID                     | 0.9855	True
+ECOPIA                    | ECOPIA                    | 1.0000	True
+--------------------------------------------------------------------------------
+[214000/300000] Train loss: 0.00025, Valid loss: 0.47373, Elapsed_time: 38454.76193
+Current_accuracy : 85.280, Current_norm_ED  : 0.95
+Best_accuracy    : 85.280, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+20555R16                  | 20555R16                  | 1.0000	True
+NEXEN                     | NEXEN                     | 1.0000	True
+MS                        | MS                        | 1.0000	True
+24550ZR19                 | 24550ZR19                 | 1.0000	True
+4223                      | 4223                      | 1.0000	True
+--------------------------------------------------------------------------------
+[216000/300000] Train loss: 0.00024, Valid loss: 0.47303, Elapsed_time: 38812.77196
+Current_accuracy : 85.317, Current_norm_ED  : 0.95
+Best_accuracy    : 85.317, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+VENTUSS1EVO2SUV           | VENTUSS1EVO2SUV           | 1.0000	True
+91H                       | 91H                       | 1.0000	True
+PIRELLI                   | PIRELLI                   | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+107103R                   | 107103R                   | 1.0000	True
+--------------------------------------------------------------------------------
+[218000/300000] Train loss: 0.00023, Valid loss: 0.47211, Elapsed_time: 39171.55161
+Current_accuracy : 85.214, Current_norm_ED  : 0.94
+Best_accuracy    : 85.317, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+0823                      | 1AT                       | 0.2806	False
+3822                      | 3822                      | 1.0000	True
+87V                       | 87V                       | 0.9999	True
+YOKOHAMA                  | YOKOHAMA                  | 1.0000	True
+RFT                       | RFT                       | 1.0000	True
+--------------------------------------------------------------------------------
+[220000/300000] Train loss: 0.00022, Valid loss: 0.47220, Elapsed_time: 39529.21277
+Current_accuracy : 85.272, Current_norm_ED  : 0.95
+Best_accuracy    : 85.272, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+2523                      | 2523                      | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+1322                      | 1322                      | 1.0000	True
+21560R17                  | 21560R17                  | 1.0000	True
+0824                      | 0824                      | 1.0000	True
+--------------------------------------------------------------------------------
+[222000/300000] Train loss: 0.00022, Valid loss: 0.47198, Elapsed_time: 39887.28795
+Current_accuracy : 85.364, Current_norm_ED  : 0.94
+Best_accuracy    : 85.364, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+GITI                      | GITI                      | 1.0000	True
+MS                        | MS                        | 1.0000	True
+94W                       | 91W                       | 0.9955	False
+102V                      | 102V                      | 1.0000	True
+1022                      | 1022                      | 1.0000	True
+--------------------------------------------------------------------------------
+[224000/300000] Train loss: 0.00021, Valid loss: 0.47069, Elapsed_time: 40246.21371
+Current_accuracy : 85.384, Current_norm_ED  : 0.94
+Best_accuracy    : 85.384, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+1522                      | 1522                      | 1.0000	True
+22555R18                  | 22555R18                  | 1.0000	True
+4119                      | 4119                      | 1.0000	True
+ATLAS                     | ATLAS                     | 1.0000	True
+DUNLOP                    | DUNLOP                    | 1.0000	True
+--------------------------------------------------------------------------------
+[226000/300000] Train loss: 0.00020, Valid loss: 0.46926, Elapsed_time: 40603.61301
+Current_accuracy : 85.422, Current_norm_ED  : 0.94
+Best_accuracy    : 85.422, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MS                        | MS                        | 1.0000	True
+23550R18                  | 23550R18                  | 1.0000	True
+ROTATION                  | 9OTATION                  | 0.6425	False
+4221                      | 4221                      | 1.0000	True
+4422                      | 4422                      | 1.0000	True
+--------------------------------------------------------------------------------
+[228000/300000] Train loss: 0.00019, Valid loss: 0.46930, Elapsed_time: 40961.69243
+Current_accuracy : 85.413, Current_norm_ED  : 0.94
+Best_accuracy    : 85.422, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+22555R19                  | 22555R19                  | 1.0000	True
+MS                        | MS                        | 1.0000	True
+ASPEC                     | ASPEC                     | 1.0000	True
+OPTIMOK415                | OPTIMOK4S                 | 0.5342	False
+81T                       | 81T                       | 0.9661	True
+--------------------------------------------------------------------------------
+[230000/300000] Train loss: 0.00019, Valid loss: 0.46827, Elapsed_time: 41319.44811
+Current_accuracy : 85.268, Current_norm_ED  : 0.94
+Best_accuracy    : 85.422, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+WESTLAKE                  | DUESTARK                  | 0.1491	False
+2624                      | 2624                      | 1.0000	True
+BLUEARTHXTAE61            | CIUEARTANTA               | 0.0584	False
+MS                        | MS                        | 1.0000	True
+95Y                       | 95Y                       | 0.9999	True
+--------------------------------------------------------------------------------
+[232000/300000] Train loss: 0.00018, Valid loss: 0.46829, Elapsed_time: 41677.11793
+Current_accuracy : 85.580, Current_norm_ED  : 0.94
+Best_accuracy    : 85.580, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+1921                      | 1921                      | 1.0000	True
+24550ZR19                 | 24550ZR19                 | 1.0000	True
+1022                      | 1022                      | 1.0000	True
+GOODYEAR                  | GOODYEAR                  | 0.9748	True
+23560R18                  | 23560R18                  | 1.0000	True
+--------------------------------------------------------------------------------
+[234000/300000] Train loss: 0.00017, Valid loss: 0.46692, Elapsed_time: 42035.67266
+Current_accuracy : 85.610, Current_norm_ED  : 0.94
+Best_accuracy    : 85.610, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+X                         | X                         | 1.0000	True
+22555R17                  | 22555R17                  | 0.9999	True
+GRENLANDER                | GRENLANDER                | 1.0000	True
+102Y                      | 102Y                      | 1.0000	True
+95Y                       | 95Y                       | 0.9987	True
+--------------------------------------------------------------------------------
+[236000/300000] Train loss: 0.00016, Valid loss: 0.46586, Elapsed_time: 42393.12228
+Current_accuracy : 85.639, Current_norm_ED  : 0.94
+Best_accuracy    : 85.639, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+24545R19                  | 24545R19                  | 1.0000	True
+1222                      | 1222                      | 1.0000	True
+21555R16                  | 21555R16                  | 1.0000	True
+GOODTRIP                  | GOODTRIP                  | 1.0000	True
+18560R15                  | 18560R15                  | 1.0000	True
+--------------------------------------------------------------------------------
+[238000/300000] Train loss: 0.00016, Valid loss: 0.46623, Elapsed_time: 42750.92810
+Current_accuracy : 82.203, Current_norm_ED  : 0.93
+Best_accuracy    : 85.639, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+GOODYEAR                  | GOODYERS                  | 0.5647	False
+TURANZA                   | TURANZA                   | 1.0000	True
+107V                      | 107V                      | 0.9965	True
+E70RZ                     | E70RZ                     | 0.9999	True
+20550R17                  | 20550R17                  | 0.9999	True
+--------------------------------------------------------------------------------
+[240000/300000] Train loss: 0.00015, Valid loss: 0.46580, Elapsed_time: 43109.48013
+Current_accuracy : 85.689, Current_norm_ED  : 0.95
+Best_accuracy    : 85.689, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+22555R18                  | 22555R18                  | 0.9992	True
+PIRELLI                   | PIRELLI                   | 1.0000	True
+22555R18                  | 22555R19                  | 0.9719	False
+107H                      | 107H                      | 1.0000	True
+21555R16                  | 21555R16                  | 1.0000	True
+--------------------------------------------------------------------------------
+[242000/300000] Train loss: 0.00014, Valid loss: 0.46421, Elapsed_time: 43468.21929
+Current_accuracy : 85.718, Current_norm_ED  : 0.94
+Best_accuracy    : 85.718, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+1623                      | 1623                      | 1.0000	True
+25555R18                  | 25555R18                  | 1.0000	True
+G91AS                     | G91AS                     | 1.0000	True
+CONTINENTAL               | CONTINENTAL               | 1.0000	True
+22560R17                  | 22560R17                  | 1.0000	True
+--------------------------------------------------------------------------------
+[244000/300000] Train loss: 0.00014, Valid loss: 0.46358, Elapsed_time: 43827.07248
+Current_accuracy : 85.755, Current_norm_ED  : 0.94
+Best_accuracy    : 85.755, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+94W                       | 94W                       | 1.0000	True
+PIRELLI                   | PIRELLI                   | 1.0000	True
+3624                      | 3624                      | 1.0000	True
+21555R17                  | 21555R17                  | 1.0000	True
+92V                       | 92V                       | 1.0000	True
+--------------------------------------------------------------------------------
+[246000/300000] Train loss: 0.00014, Valid loss: 0.46102, Elapsed_time: 44185.16695
+Current_accuracy : 85.826, Current_norm_ED  : 0.94
+Best_accuracy    : 85.826, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+94W                       | 94W                       | 1.0000	True
+22555R19                  | 22555R19                  | 1.0000	True
+2623                      | 2623                      | 1.0000	True
+24550R18                  | 24550R18                  | 1.0000	True
+GITI                      | GITI                      | 1.0000	True
+--------------------------------------------------------------------------------
+[248000/300000] Train loss: 0.00013, Valid loss: 0.46007, Elapsed_time: 44543.01564
+Current_accuracy : 85.826, Current_norm_ED  : 0.94
+Best_accuracy    : 85.826, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+102W                      | 102V                      | 1.0000	False
+100H                      | 100H                      | 1.0000	True
+0824                      | 0824                      | 1.0000	True
+18550R18                  | 18550R18                  | 1.0000	True
+18570R14                  | 18570R14                  | 1.0000	True
+--------------------------------------------------------------------------------
+[250000/300000] Train loss: 0.00013, Valid loss: 0.45920, Elapsed_time: 44901.53102
+Current_accuracy : 85.847, Current_norm_ED  : 0.94
+Best_accuracy    : 85.847, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+99V                       | 99V                       | 1.0000	True
+HANKOOK                   | HANKOOK                   | 1.0000	True
+X                         | X                         | 1.0000	True
+DUNLOP                    | DUNLOP                    | 1.0000	True
+20565R15                  | 20565R15                  | 1.0000	True
+--------------------------------------------------------------------------------
+[252000/300000] Train loss: 0.00013, Valid loss: 0.45801, Elapsed_time: 45259.49981
+Current_accuracy : 85.448, Current_norm_ED  : 0.93
+Best_accuracy    : 85.847, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+PRIMACYSUV                | SPORANCISUV               | 0.2585	False
+1522                      | 1522                      | 0.9999	True
+MS                        | MS                        | 1.0000	True
+TURANZAT005               | TURANZAT005               | 0.9895	True
+91H                       | 91H                       | 0.9999	True
+--------------------------------------------------------------------------------
+[254000/300000] Train loss: 0.00012, Valid loss: 0.45666, Elapsed_time: 45617.68373
+Current_accuracy : 85.880, Current_norm_ED  : 0.94
+Best_accuracy    : 85.880, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+CONTINENTAL               | CONTINENTAL               | 0.9999	True
+23560R18                  | 23560R18                  | 0.7002	True
+EFFICIENTGRIP             | EATICINICPIP              | 0.0484	False
+91V                       | 91V                       | 1.0000	True
+X                         | X                         | 1.0000	True
+--------------------------------------------------------------------------------
+[256000/300000] Train loss: 0.00012, Valid loss: 0.45531, Elapsed_time: 45975.34874
+Current_accuracy : 85.984, Current_norm_ED  : 0.94
+Best_accuracy    : 85.984, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+91V                       | 91V                       | 1.0000	True
+20560R16                  | 20560R16                  | 1.0000	True
+26565R19                  | 25555R17                  | 0.8795	False
+24545R20                  | 20545R20                  | 0.4078	False
+3722                      | 3722                      | 1.0000	True
+--------------------------------------------------------------------------------
+[258000/300000] Train loss: 0.00012, Valid loss: 0.45415, Elapsed_time: 46333.60032
+Current_accuracy : 85.947, Current_norm_ED  : 0.94
+Best_accuracy    : 85.984, Best_norm_ED     : 0.95
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+2824                      | 2824                      | 0.9999	True
+5222                      | 5222                      | 1.0000	True
+BRIDGESTONE               | BRIDGESTONE               | 1.0000	True
+FULDA                     | FULDA                     | 1.0000	True
+CRUGEN                    | CRUGEN                    | 0.9999	True
+--------------------------------------------------------------------------------
+[260000/300000] Train loss: 0.00014, Valid loss: 0.45093, Elapsed_time: 46693.15564
+Current_accuracy : 86.064, Current_norm_ED  : 0.96
+Best_accuracy    : 86.064, Best_norm_ED     : 0.96
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+GP-16                     | GP-16                     | 0.9999	True
+22555RF17                 | 22555RF7                  | 0.9550	False
+MS                        | MS                        | 1.0000	True
+BRIDGESTONE               | BRIDGESTONE               | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+--------------------------------------------------------------------------------
+[262000/300000] Train loss: 0.00011, Valid loss: 0.44911, Elapsed_time: 47051.33862
+Current_accuracy : 86.055, Current_norm_ED  : 0.94
+Best_accuracy    : 86.064, Best_norm_ED     : 0.96
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+2824                      | 2824                      | 1.0000	True
+1424                      | 1424                      | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+94W                       | 94W                       | 1.0000	True
+--------------------------------------------------------------------------------
+[264000/300000] Train loss: 0.00011, Valid loss: 0.44800, Elapsed_time: 47409.22517
+Current_accuracy : 86.076, Current_norm_ED  : 0.94
+Best_accuracy    : 86.076, Best_norm_ED     : 0.96
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+23545R18                  | 23545R18                  | 1.0000	True
+102H                      | 102H                      | 1.0000	True
+LINGLONG                  | LINGLONG                  | 1.0000	True
+91V                       | 91V                       | 1.0000	True
+ALTA1                     | ALTA1                     | 0.9226	True
+--------------------------------------------------------------------------------
+[266000/300000] Train loss: 0.00011, Valid loss: 0.44700, Elapsed_time: 47767.11104
+Current_accuracy : 86.184, Current_norm_ED  : 0.94
+Best_accuracy    : 86.184, Best_norm_ED     : 0.96
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+3024                      | 3024                      | 1.0000	True
+GOODYEAR                  | GOODYEAR                  | 0.9994	True
+24545R19                  | 24545R19                  | 1.0000	True
+24535R19                  | 24535R19                  | 1.0000	True
+105W                      | 105W                      | 1.0000	True
+--------------------------------------------------------------------------------
+[268000/300000] Train loss: 0.00011, Valid loss: 0.44574, Elapsed_time: 48125.20948
+Current_accuracy : 86.213, Current_norm_ED  : 0.94
+Best_accuracy    : 86.213, Best_norm_ED     : 0.96
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MICHELIN                  | MICHELIN                  | 0.9998	True
+22555R17                  | 22555R17                  | 1.0000	True
+MS                        | MS                        | 1.0000	True
+22540R18                  | 24540R16                  | 0.4506	False
+92V                       | 92V                       | 1.0000	True
+--------------------------------------------------------------------------------
+[270000/300000] Train loss: 0.00010, Valid loss: 0.44722, Elapsed_time: 48483.14224
+Current_accuracy : 86.268, Current_norm_ED  : 0.96
+Best_accuracy    : 86.268, Best_norm_ED     : 0.96
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+20555R16                  | 20555R16                  | 1.0000	True
+98V                       | 98V                       | 1.0000	True
+GITICOMFORT225V1          | GITICOMFORT225V1          | 1.0000	True
+2722                      | 2722                      | 1.0000	True
+107V                      | 107V                      | 1.0000	True
+--------------------------------------------------------------------------------
+[272000/300000] Train loss: 0.00010, Valid loss: 0.44683, Elapsed_time: 48841.38846
+Current_accuracy : 86.293, Current_norm_ED  : 0.94
+Best_accuracy    : 86.293, Best_norm_ED     : 0.96
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+23560R18                  | 23560R18                  | 1.0000	True
+91W                       | 97V                       | 0.9988	False
+91V                       | 91V                       | 1.0000	True
+98H                       | 98H                       | 1.0000	True
+SPSPORTD8H                | SPSPORTD06                | 0.5303	False
+--------------------------------------------------------------------------------
+[274000/300000] Train loss: 0.00009, Valid loss: 0.44598, Elapsed_time: 49198.76040
+Current_accuracy : 86.180, Current_norm_ED  : 0.94
+Best_accuracy    : 86.293, Best_norm_ED     : 0.96
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+19565R15                  | 19565R15                  | 0.9990	True
+23550R19                  | 23550R19                  | 0.9999	True
+19565R15                  | 19565R15                  | 0.9999	True
+93H                       | 93H                       | 0.9480	True
+23555RF19                 | 23555RF19                 | 0.9956	True
+--------------------------------------------------------------------------------
+[276000/300000] Train loss: 0.00008, Valid loss: 0.44512, Elapsed_time: 49556.63519
+Current_accuracy : 86.364, Current_norm_ED  : 0.94
+Best_accuracy    : 86.364, Best_norm_ED     : 0.96
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+101W                      | 101W                      | 1.0000	True
+22565R17                  | 22565R17                  | 1.0000	True
+105V                      | 105V                      | 1.0000	True
+82H                       | 82H                       | 1.0000	True
+25545R20                  | 25545R20                  | 1.0000	True
+--------------------------------------------------------------------------------
+[278000/300000] Train loss: 0.00008, Valid loss: 0.44416, Elapsed_time: 49914.52849
+Current_accuracy : 85.448, Current_norm_ED  : 0.93
+Best_accuracy    : 86.364, Best_norm_ED     : 0.96
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+95V                       | 95V                       | 1.0000	True
+MS                        | MS                        | 1.0000	True
+ILINK                     | BETEAX                    | 0.1646	False
+HANKOOK                   | HANKOOK                   | 1.0000	True
+103V                      | 109V                      | 0.9994	False
+--------------------------------------------------------------------------------
+[280000/300000] Train loss: 0.00008, Valid loss: 0.44292, Elapsed_time: 50272.92678
+Current_accuracy : 86.313, Current_norm_ED  : 0.96
+Best_accuracy    : 86.313, Best_norm_ED     : 0.96
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MS                        | MS                        | 1.0000	True
+19565R15                  | 19565R15                  | 0.9999	True
+RELIAXTOURINGTE307        | REAATOONSEA01             | 0.0841	False
+GOODYEAR                  | GOODYEAR                  | 1.0000	True
+WESTLAKE                  | BESTLAK2                  | 0.3523	False
+--------------------------------------------------------------------------------
+[282000/300000] Train loss: 0.00007, Valid loss: 0.44124, Elapsed_time: 50631.16468
+Current_accuracy : 86.333, Current_norm_ED  : 0.96
+Best_accuracy    : 86.333, Best_norm_ED     : 0.96
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+EUROVISSUVAS              | EURDUSSUVES               | 0.8997	False
+2823                      | 2823                      | 1.0000	True
+0522                      | 1622                      | 0.3267	False
+1823                      | 1823                      | 1.0000	True
+23565R17                  | 23565R17                  | 1.0000	True
+--------------------------------------------------------------------------------
+[284000/300000] Train loss: 0.00007, Valid loss: 0.44067, Elapsed_time: 50988.96667
+Current_accuracy : 86.356, Current_norm_ED  : 0.96
+Best_accuracy    : 86.356, Best_norm_ED     : 0.96
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MICHELIN                  | MICHELIN                  | 1.0000	True
+97V                       | 97V                       | 0.7299	True
+88T                       | 38T                       | 0.7894	False
+TRIPLEMAX                 | TRIPLEMAX                 | 0.6270	True
+1624                      | 1624                      | 1.0000	True
+--------------------------------------------------------------------------------
+[286000/300000] Train loss: 0.00006, Valid loss: 0.43917, Elapsed_time: 51347.02816
+Current_accuracy : 86.392, Current_norm_ED  : 0.96
+Best_accuracy    : 86.392, Best_norm_ED     : 0.96
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+MAXXISM3                  | MAXESSON8                 | 0.2454	False
+0824                      | 0824                      | 1.0000	True
+PRIMACYSUV                | PRIMACYSUV                | 0.9965	True
+YOKOHAMA                  | YOKOHAMA                  | 1.0000	True
+24550R19                  | 24550R19                  | 1.0000	True
+--------------------------------------------------------------------------------
+[288000/300000] Train loss: 0.00005, Valid loss: 0.43767, Elapsed_time: 51706.76316
+Current_accuracy : 86.413, Current_norm_ED  : 0.96
+Best_accuracy    : 86.413, Best_norm_ED     : 0.96
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+107103R                   | 107103R                   | 0.9999	True
+91V                       | 91V                       | 1.0000	True
+KINERGYEX                 | KINERGLE                  | 0.9563	False
+91V                       | 91V                       | 1.0000	True
+MICHELIN                  | MICHELIN                  | 1.0000	True
+--------------------------------------------------------------------------------
+[290000/300000] Train loss: 0.00005, Valid loss: 0.43917, Elapsed_time: 52064.63764
+Current_accuracy : 86.413, Current_norm_ED  : 0.96
+Best_accuracy    : 86.413, Best_norm_ED     : 0.96
+--------------------------------------------------------------------------------
+Ground Truth              | Prediction                | Confidence Score & T/F
+--------------------------------------------------------------------------------
+0424                      | 0424                      | 1.0000	True
+HANKOOK                   | HANKOOK                   | 0.8928	True
+MS                        | MS                        | 1.0000	True
+GOODYEAR                  | GOODYEAR                  | 1.0000	True
+22550R18                  | 22550R18                  | 1.0000	True
+--------------------------------------------------------------------------------

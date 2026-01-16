@@ -1,4 +1,5 @@
-from utils.tire_cropping import detect_tire_and_rim, get_flattened_sidewall_image
+from src.utils.image_preprocessing import preprocess_image
+from src.utils.tire_cropping import detect_tire_and_rim, get_flattened_sidewall_image
 from models_types.tire_info import TireInfo
 from services.gemini_service import extract_tire_information
 from models.text_recognition import TextRecognitionModel
@@ -15,12 +16,16 @@ from io import BytesIO
 from PIL import Image
 from typing import Optional
 
-# Add parent directory to path FIRST to import utils from root
+try:
+    from pillow_heif import register_heif_opener
+    register_heif_opener()
+    HEIF_AVAILABLE = True
+except ImportError:
+    HEIF_AVAILABLE = False
+
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# Now import third-party and local modules
 
-# Setup logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -36,7 +41,6 @@ class TireImageProcessingPipeline:
         """
         self.config = config or TireExtractionConfig()
 
-        # Load models
         logger.info("Loading models...")
         self.yolo_model = YOLO(self.config.YOLO_MODEL_PATH)
         self.text_detection_model = TextDetectionModel(
@@ -82,13 +86,34 @@ class TireImageProcessingPipeline:
         Returns:
             Image as numpy array in BGR format
         """
-        # Check if it's a URL
         if image_source.startswith('http://') or image_source.startswith('https://'):
             return self.load_image_from_url(image_source)
 
-        # Otherwise treat as file path
         if not os.path.exists(image_source):
             raise FileNotFoundError(f"Image not found at {image_source}")
+
+        file_ext = os.path.splitext(image_source)[1].lower()
+
+        if file_ext in ['.heic', '.heif']:
+            logger.info(f"Detected HEIC/HEIF format, converting to JPEG...")
+            if not HEIF_AVAILABLE:
+                raise ValueError(
+                    "HEIC/HEIF support not available. Please install pillow-heif: pip install pillow-heif"
+                )
+            try:
+                pil_image = Image.open(image_source)
+
+                if pil_image.mode != 'RGB':
+                    pil_image = pil_image.convert('RGB')
+
+                image = cv2.cvtColor(np.array(pil_image), cv2.COLOR_RGB2BGR)
+                logger.info(f"Successfully converted HEIC to BGR format")
+                return image
+            except Exception as e:
+                raise ValueError(f"Failed to convert HEIC image: {e}")
+
+        if file_ext == '.jpeg':
+            logger.info(f"Detected JPEG format (will process as JPG)")
 
         image = cv2.imread(image_source)
         if image is None:
@@ -105,37 +130,23 @@ class TireImageProcessingPipeline:
         Returns:
             Preprocessed image ready for text detection
         """
-        # Convert to grayscale and threshold to find non-black regions
+        # Crop to non-zero region
         gray = cv2.cvtColor(flattened_image, cv2.COLOR_BGR2GRAY)
         _, mask = cv2.threshold(gray, 1, 255, cv2.THRESH_BINARY)
-
-        # Get bounding box of the sidewall
         x, y, w, h = cv2.boundingRect(mask)
-
-        # Crop the sidewall region
         sidewall = flattened_image[y:y+h, x:x+w]
 
-        # Resize to target dimensions
-        resized = cv2.resize(
+        # Apply selected preprocessing method from config
+        preprocessed = preprocess_image(
             sidewall,
-            (self.config.TARGET_WIDTH, self.config.TARGET_HEIGHT),
-            interpolation=cv2.INTER_LINEAR
+            method=self.config.PREPROCESSING_METHOD,
+            clip_limit=self.config.CLAHE_CLIP_LIMIT,
+            tile_grid_size=self.config.CLAHE_TILE_GRID_SIZE,
+            min_percentile=self.config.LINEAR_MIN_PERCENTILE,
+            max_percentile=self.config.LINEAR_MAX_PERCENTILE
         )
 
-        # Apply CLAHE for contrast enhancement
-        clahe = cv2.createCLAHE(
-            clipLimit=self.config.CLAHE_CLIP_LIMIT,
-            tileGridSize=self.config.CLAHE_TILE_GRID_SIZE
-        )
-
-        # Convert to grayscale and apply CLAHE
-        gray_sidewall = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY)
-        enhanced = clahe.apply(gray_sidewall)
-
-        # Convert back to BGR for consistency
-        enhanced_bgr = cv2.cvtColor(enhanced, cv2.COLOR_GRAY2BGR)
-
-        return enhanced_bgr
+        return preprocessed
 
     def run_pipeline(self, image_source: str, save_debug: bool = False) -> TireInfo:
         """Run the complete tire extraction pipeline
@@ -155,7 +166,9 @@ class TireImageProcessingPipeline:
 
         # Step 2: Detect tire and rim
         logger.info("Detecting tire and rim...")
-        detection_result = detect_tire_and_rim(self.yolo_model, original_image)
+        output_path = os.path.join("debug1", "00_tire_rim_detection.jpg")
+        detection_result = detect_tire_and_rim(
+            self.yolo_model, original_image, output_path)
         if detection_result is None:
             raise RuntimeError("Tire or rim detection failed")
 
@@ -190,7 +203,7 @@ class TireImageProcessingPipeline:
         # Create debug directory if needed
         debug_dir = None
         if save_debug:
-            debug_dir = "debug"
+            debug_dir = "debug1"
             os.makedirs(debug_dir, exist_ok=True)
             cv2.imwrite(os.path.join(
                 debug_dir, "01_flattened.jpg"), flattened_image)
@@ -200,7 +213,8 @@ class TireImageProcessingPipeline:
 
         # Step 5: Detect text regions
         logger.info("Detecting text regions...")
-        detections = self.text_detection_model.detect_text(preprocessed_image)
+        detections = self.text_detection_model.detect_text(
+            preprocessed_image, self.config.CONF_THRESHOLD)
         logger.info(f"Found {len(detections)} text regions")
 
         if len(detections) == 0:
@@ -215,16 +229,23 @@ class TireImageProcessingPipeline:
 
         # Save detection visualization if debugging
         if save_debug and len(detections) > 0:
-            vis_image = preprocessed_image.copy()
-            for detection in detections:
-                x1, y1, x2, y2 = detection["bbox"]
-                conf = detection["confidence"]
-                cv2.rectangle(vis_image, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                cv2.putText(vis_image, f"{conf:.2f}", (x1, y1-5),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-            cv2.imwrite(os.path.join(
-                debug_dir, "03_detections.jpg"), vis_image)
-            logger.info(f"Detection visualization saved")
+            # Save bounding boxes on preprocessed image
+            self.text_detection_model.visualize_detections(
+                preprocessed_image,
+                detections,
+                save_path=os.path.join(
+                    debug_dir, "detections_preprocessed.jpg")
+            )
+
+            # Save bounding boxes on flattened image (original tire unwrapped)
+            self.text_detection_model.visualize_detections(
+                flattened_image,
+                detections,
+                save_path=os.path.join(
+                    debug_dir, "detections_flattened.jpg")
+            )
+            logger.info(
+                f"Detection visualizations saved (on both preprocessed and flattened images)")
 
         # Step 7: Recognize text
         logger.info("Recognizing text...")
@@ -232,8 +253,24 @@ class TireImageProcessingPipeline:
             text_crops)
         logger.info(f"Recognized {len(recognized_texts)} text strings")
 
-        for i, text in enumerate(recognized_texts):
-            logger.info(f"  Text {i+1}: {text}")
+        # Combine recognized texts with their bounding box information
+        texts_with_bboxes = []
+        for i, (text, detection) in enumerate(zip(recognized_texts, detections)):
+            # Extract bbox coordinates from detection
+            # Detection format varies, but typically has 'bbox' or coordinates
+            if hasattr(detection, 'bbox'):
+                bbox = detection.bbox
+            elif isinstance(detection, (list, tuple)) and len(detection) >= 4:
+                bbox = detection[:4]
+            elif isinstance(detection, dict) and 'bbox' in detection:
+                bbox = detection['bbox']
+            else:
+                bbox = [0, 0, 0, 0]  # Fallback
+
+            # Format: "Text: {text} | BBox: (x1={x1}, y1={y1}, x2={x2}, y2={y2})"
+            bbox_info = f"Text: {text} | BBox: (x1={bbox[0]:.1f}, y1={bbox[1]:.1f}, x2={bbox[2]:.1f}, y2={bbox[3]:.1f})"
+            texts_with_bboxes.append(bbox_info)
+            logger.info(f"  Text {i+1}: {bbox_info}")
 
         # Step 8: Extract structured information using LLM
         logger.info("Extracting tire information using Gemini...")
@@ -253,11 +290,11 @@ class TireImageProcessingPipeline:
         except Exception as e:
             logger.warning(f"Failed to encode flattened image for LLM: {e}")
 
+        # Pass texts with bbox information to LLM
         tire_info_dict = extract_tire_information(
             model=self.config.GEMINI_MODEL,
-            ocr_texts=recognized_texts,
+            ocr_texts=texts_with_bboxes,  # Now includes bbox information
             api_key=self.config.GEMINI_API_KEY,
-            known_tire_candidates="",  # Can be extended with database lookup
             flattened_image=flattened_image_bytes
         )
 

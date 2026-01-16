@@ -1,0 +1,3 @@
+model,iou_threshold,accuracy,precision,recall,f1_score,images,time_sec,images_per_sec
+YOLOv11 Gốc,0.5,0.8825,0.6060,0.8825,0.7186,446,286.19,1.56
+YOLOv11 Cải tiến,0.5,0.9055,0.6366,0.9055,0.7476,446,384.36,1.16
