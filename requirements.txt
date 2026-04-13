@@ -12,6 +12,14 @@ requests>=2.31.0
 # Optional but recommended
 python-dotenv>=1.0.0
 
+# API dependencies
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+python-multipart>=0.0.9
+
+# Streamlit UI
+streamlit>=1.30.0
+
 # Evaluation dependencies
 fuzzywuzzy>=0.18.0
 python-Levenshtein>=0.21.0  # For faster fuzzy matching

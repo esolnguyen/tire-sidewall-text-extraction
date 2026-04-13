@@ -1,1 +1,1 @@
-# This file is intentionally left blank.
+"""Utility functions for image processing and evaluation."""

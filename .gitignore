@@ -4,7 +4,10 @@ dataset
 ultralytics
 *.pt
 *.pth
-models
+/models
 debug
 __pycache__
 .env
+legacy/
+*.egg-info/
+.DS_Store

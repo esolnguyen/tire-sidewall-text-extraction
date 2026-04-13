@@ -221,16 +221,3 @@ def preprocess_image(image: np.ndarray,
                          f"Choose from: 'linear', 'histogram_eq', 'clahe', 'none'")
 
     return enhanced
-
-
-# ============================================================================
-# Legacy compatibility functions
-# ============================================================================
-
-def apply_clahe(image: np.ndarray, clip_limit: float = 4.0,
-                tile_grid_size: tuple = (8, 8)) -> np.ndarray:
-    """Legacy function for backward compatibility
-
-    Deprecated: Use clahe_enhancement() or preprocess_image(method='clahe') instead
-    """
-    return clahe_enhancement(image, clip_limit, tile_grid_size)

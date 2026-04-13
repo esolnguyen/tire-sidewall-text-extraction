@@ -12,14 +12,6 @@ Usage:
     python compare_preprocessing.py --evaluate-dataset
 """
 
-from src.pipeline import TireImageProcessingPipeline
-from src.config import TireExtractionConfig
-from src.utils.image_preprocessing import (
-    linear_stretching,
-    histogram_equalization,
-    clahe_enhancement,
-    preprocess_image
-)
 import argparse
 import cv2
 import numpy as np
@@ -30,7 +22,16 @@ from typing import Dict, List
 import json
 from pathlib import Path
 
-sys.path.insert(0, os.path.dirname(__file__))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
+
+from pipeline.core import TireImageProcessingPipeline
+from config import TireExtractionConfig
+from utils.image_preprocessing import (
+    linear_stretching,
+    histogram_equalization,
+    clahe_enhancement,
+    preprocess_image,
+)
 
 
 def visualize_preprocessing_comparison(image_path: str, save_dir: str = "preprocessing_comparison"):

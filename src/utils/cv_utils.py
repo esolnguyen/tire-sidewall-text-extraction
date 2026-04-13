@@ -1,10 +1,12 @@
-# tire_info_extractor/utils/cv_utils.py
 import json
+import logging
 import os
 from typing import Tuple, Optional
 
 import cv2
 import numpy as np
+
+logger = logging.getLogger(__name__)
 
 
 def contour_to_bbox(contour: np.ndarray) -> Tuple[int, int, int, int]:
@@ -72,10 +74,10 @@ def load_json_file(file_path):
         with open(file_path, 'r', encoding='utf-8') as f:
             return json.load(f)
     except FileNotFoundError:
-        print(f"ERROR: File not found: {file_path}")
+        logger.error(f"File not found: {file_path}")
         return None
     except json.JSONDecodeError:
-        print(f"ERROR: Could not decode JSON from: {file_path}")
+        logger.error(f"Could not decode JSON from: {file_path}")
         return None
 
 
@@ -84,9 +86,9 @@ def save_json_file(data, file_path):
         output_dir = os.path.dirname(file_path)
         if output_dir and not os.path.exists(output_dir):
             os.makedirs(output_dir)
-            print(f"INFO: Created directory {output_dir}")
+            logger.info(f"Created directory {output_dir}")
         with open(file_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
-        print(f"INFO: Data saved to: {file_path}")
+        logger.info(f"Data saved to: {file_path}")
     except IOError as e:
-        print(f"ERROR: Could not write data to {file_path}: {e}")
+        logger.error(f"Could not write data to {file_path}: {e}")

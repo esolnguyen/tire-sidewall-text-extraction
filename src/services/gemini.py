@@ -1,3 +1,5 @@
+"""Gemini LLM service for tire information extraction."""
+
 import json
 import logging
 import time
@@ -6,6 +8,10 @@ from google import genai
 from google.genai import types
 from typing import Optional, List
 
+logger = logging.getLogger(__name__)
+
+
+# ── Prompt ───────────────────────────────────────────────────────────────
 
 EXTRACT_ENTIRE_INFORMATION_PROMPT = """
 Your task is to perform a complete analysis of the provided tire sidewall. You have access to both OCR-extracted text and an image of the flattened tire sidewall. Use both sources to identify the manufacturer, model, and other technical details, and return them in a single JSON object.
@@ -50,7 +56,7 @@ Note: Each text entry includes its bounding box coordinates (x1, y1, x2, y2) sho
 ---
 **Verification & Confidence Check:**
 ---
-**IMPORTANT:** If you are not confident/certain about your extraction result for any field, use the provided OCR text with bounding boxes to verify and validate your result. 
+**IMPORTANT:** If you are not confident/certain about your extraction result for any field, use the provided OCR text with bounding boxes to verify and validate your result.
 
 Specifically:
 - Cross-reference your visual interpretation with the OCR text provided
@@ -63,14 +69,15 @@ Specifically:
 **JSON Output Schema:**
 ---
 Please structure your response in this exact JSON format. If a value is not found, use "Not found".
+For each field, also return a `bbox` array containing the bounding box(es) from the OCR input that you used to extract that value. Each bbox should be `[x1, y1, x2, y2]`. If the value was inferred purely from the image (not from any OCR text), return an empty array.
 
 {{
-    "Manufacturer": "string",
-    "Model": "string",
-    "Size": "string",
-    "LoadSpeed": "string",
-    "DOT": "string (4-digit WWYY)",
-    "SpecialMarkings": ["string"]
+    "Manufacturer": {{"value": "string", "bbox": [[x1, y1, x2, y2]]}},
+    "Model": {{"value": "string", "bbox": [[x1, y1, x2, y2]]}},
+    "Size": {{"value": "string", "bbox": [[x1, y1, x2, y2]]}},
+    "LoadSpeed": {{"value": "string", "bbox": [[x1, y1, x2, y2]]}},
+    "DOT": {{"value": "string (4-digit WWYY)", "bbox": [[x1, y1, x2, y2]]}},
+    "SpecialMarkings": [{{"value": "string", "bbox": [[x1, y1, x2, y2]]}}]
 }}
 
 ---
@@ -103,36 +110,38 @@ Please structure your response in this exact JSON format. If a value is not foun
 **Example Output:**
 ---
 {{
-    "Manufacturer": "Audi",
-    "Model": "Pilot Sport 4S",
-    "Size": "245/35ZR20",
-    "LoadSpeed": "95Y",
-    "DOT": "1023",
-    "SpecialMarkings": ["AO", "XL"]
+    "Manufacturer": {{"value": "Michelin", "bbox": [[120, 50, 580, 130]]}},
+    "Model": {{"value": "Pilot Sport 4S", "bbox": [[600, 50, 1200, 130], [1210, 50, 1400, 130]]}},
+    "Size": {{"value": "245/35ZR20", "bbox": [[1500, 200, 2100, 280]]}},
+    "LoadSpeed": {{"value": "95Y", "bbox": [[2110, 200, 2300, 280]]}},
+    "DOT": {{"value": "1023", "bbox": [[3000, 400, 3400, 480]]}},
+    "SpecialMarkings": [
+        {{"value": "AO", "bbox": [[2500, 300, 2650, 380]]}},
+        {{"value": "XL", "bbox": [[2700, 300, 2850, 380]]}}
+    ]
 }}
 
 Now, analyze the provided data and respond with only the populated JSON object.
 """
 
 
+# ── Service ──────────────────────────────────────────────────────────────
+
 class GeminiService:
     def __init__(self, api_key: str, model: str = "gemini-2.0-flash-exp"):
         self.client = genai.Client(api_key=api_key)
         self.model = model
-        self.logger = logging.getLogger(__name__)
 
     def _process_response(self, response: types.GenerateContentResponse, duration: float) -> dict:
-        """Process Gemini API responses and handle token counting"""
+        """Process Gemini API responses and handle token counting."""
         if not response.candidates:
             feedback = getattr(response, 'prompt_feedback', None)
             block_reason = getattr(feedback, 'block_reason', 'Unknown')
             safety_ratings = getattr(feedback, 'safety_ratings', 'N/A')
-            self.logger.error(
-                f"Gemini response blocked or empty. Reason: {block_reason}. Safety Ratings: {safety_ratings}"
+            logger.error(
+                f"Gemini response blocked or empty. Reason: {block_reason}. Safety: {safety_ratings}"
             )
-            raise Exception(
-                f"Gemini response blocked or empty. Reason: {block_reason}. Safety Ratings: {safety_ratings}"
-            )
+            raise Exception(f"Gemini response blocked. Reason: {block_reason}")
 
         usage_metadata = getattr(response, 'usage_metadata', None)
         input_tokens = 0
@@ -146,8 +155,6 @@ class GeminiService:
             output_tokens = getattr(
                 usage_metadata, 'candidates_token_count', 0) or 0
             output_tokens += thought_tokens
-        else:
-            self.logger.warning("Usage metadata not found in Gemini response.")
 
         response_content = ""
         candidate_content = getattr(response.candidates[0], 'content', None)
@@ -156,162 +163,103 @@ class GeminiService:
                 part.text for part in candidate_content.parts if getattr(part, 'text', None)
             ).strip()
 
-        self.logger.info("LLM response received from Gemini.")
-        self.logger.debug(f"Raw response snippet: {response_content[:200]}...")
-
         if not response_content:
-            self.logger.warning("Received empty response content from Gemini.")
             raise Exception("Received empty response content from Gemini.")
 
         try:
             parsed_content = json.loads(response_content)
-            self.logger.info("Successfully parsed LLM JSON response.")
             return {
                 "content": parsed_content,
                 "input_tokens": input_tokens,
                 "output_tokens": output_tokens,
-                "duration": Decimal(str(duration))
+                "duration": Decimal(str(duration)),
             }
-        except json.JSONDecodeError as json_err:
-            self.logger.error(
-                f"Failed to parse JSON response from Gemini: {json_err}")
-            self.logger.error(
-                f"Content attempted to parse: {response_content}")
+        except json.JSONDecodeError:
             raise Exception(
-                f"Failed to parse JSON response from Gemini. Raw response: {response_content}"
-            )
+                f"Failed to parse JSON from Gemini. Raw: {response_content}")
 
     async def extract_tire_info(
         self,
         ocr_text: str,
         known_tire_candidates: str,
-        prompt_template: str
+        prompt_template: str,
     ) -> dict:
-        """
-        Extract tire information using Gemini LLM
+        """Async version of tire info extraction."""
+        logger.info(f"Sending request to Gemini model: {self.model}")
 
-        Args:
-            ocr_text: The OCR text extracted from tire sidewall
-            known_tire_candidates: String containing known manufacturers and models with similarity scores
-            prompt_template: The prompt template with placeholders {full_text} and {know_tire}
-
-        Returns:
-            Dictionary containing extracted tire information
-        """
-        self.logger.info(
-            f"Sending tire information extraction request to Gemini model: {self.model}")
-
-        try:
-            start_time = time.time()
-
-            # Format the prompt with actual data
-            formatted_prompt = prompt_template.format(
-                full_text=ocr_text,
-                know_tire=known_tire_candidates
-            )
-
-            # Create the content for the API call
-            contents = types.Content(
-                role='user',
-                parts=[types.Part.from_text(text=formatted_prompt)]
-            )
-
-            # Configure the API call
-            config = types.GenerateContentConfig(
-                response_mime_type="application/json",
-                temperature=0.2,  # Lower temperature for more deterministic extraction
-            )
-
-            # Make the API call
-            response = await self.client.aio.models.generate_content(
-                model=self.model,
-                contents=contents,
-                config=config
-            )
-
-            duration = time.time() - start_time
-            result = self._process_response(response, duration)
-
-            return result["content"]
-
-        except Exception as e:
-            self.logger.error(
-                f"An error occurred during the Gemini API call: {e}")
-            raise Exception(
-                f"An error occurred during tire info extraction: {e}")
+        start_time = time.time()
+        formatted_prompt = prompt_template.format(
+            full_text=ocr_text, know_tire=known_tire_candidates
+        )
+        contents = types.Content(
+            role='user',
+            parts=[types.Part.from_text(text=formatted_prompt)],
+        )
+        config = types.GenerateContentConfig(
+            response_mime_type="application/json",
+            temperature=0,
+            top_k=1,
+            top_p=1,
+            max_output_tokens=512,
+            seed=42,
+        )
+        response = await self.client.aio.models.generate_content(
+            model=self.model, contents=contents, config=config,
+        )
+        duration = time.time() - start_time
+        return self._process_response(response, duration)["content"]
 
     def extract_tire_info_sync(
         self,
         ocr_text: str,
         known_tire_candidates: str,
         prompt_template: str,
-        flattened_image: Optional[bytes] = None
+        flattened_image: Optional[bytes] = None,
     ) -> dict:
-        """
-        Synchronous version of extract_tire_info
+        """Synchronous tire info extraction with optional image."""
+        logger.info(f"Sending request to Gemini model: {self.model}")
 
-        Args:
-            ocr_text: The OCR text extracted from tire sidewall
-            known_tire_candidates: String containing known manufacturers and models with similarity scores
-            prompt_template: The prompt template with placeholders {full_text} and {know_tire}
-            flattened_image: Optional flattened tire sidewall image as bytes (JPEG format)
+        start_time = time.time()
+        formatted_prompt = prompt_template.format(
+            full_text=ocr_text, know_tire=known_tire_candidates
+        )
+        parts = [types.Part.from_text(text=formatted_prompt)]
+        if flattened_image is not None:
+            parts.append(types.Part.from_bytes(
+                data=flattened_image, mime_type="image/jpeg"))
 
-        Returns:
-            Dictionary containing extracted tire information
-        """
-        self.logger.info(
-            f"Sending tire information extraction request to Gemini model: {self.model}")
+        contents = types.Content(role='user', parts=parts)
+        config = types.GenerateContentConfig(
+            response_mime_type="application/json",
+            temperature=0,
+            top_k=1,
+            top_p=1,
+            max_output_tokens=512,
+            seed=42,
+        )
+        response = self.client.models.generate_content(
+            model=self.model, contents=contents, config=config,
+        )
+        duration = time.time() - start_time
+        return self._process_response(response, duration)["content"]
 
-        try:
-            start_time = time.time()
 
-            # Format the prompt with actual data
-            formatted_prompt = prompt_template.format(
-                full_text=ocr_text,
-                know_tire=known_tire_candidates
-            )
+# ── Convenience wrappers ──────────────────────────────────────────────────
 
-            # Create parts list starting with the text prompt
-            parts = [types.Part.from_text(text=formatted_prompt)]
-
-            # Add image if provided
-            if flattened_image is not None:
-                self.logger.info(
-                    "Including flattened tire image in LLM request")
-                parts.append(types.Part.from_bytes(
-                    data=flattened_image,
-                    mime_type="image/jpeg"
-                ))
-
-            # Create the content for the API call
-            contents = types.Content(
-                role='user',
-                parts=parts
-            )
-
-            # Configure the API call
-            config = types.GenerateContentConfig(
-                response_mime_type="application/json",
-                temperature=0.2,
-            )
-
-            # Make the API call (synchronous)
-            response = self.client.models.generate_content(
-                model=self.model,
-                contents=contents,
-                config=config
-            )
-
-            duration = time.time() - start_time
-            result = self._process_response(response, duration)
-
-            return result["content"]
-
-        except Exception as e:
-            self.logger.error(
-                f"An error occurred during the Gemini API call: {e}")
-            raise Exception(
-                f"An error occurred during tire info extraction: {e}")
+def extract_tire_information_raw(
+    model: str,
+    api_key: str,
+    image_bytes: bytes,
+) -> Optional[dict]:
+    """Call Gemini directly with a raw image, no OCR preprocessing."""
+    try:
+        return extract_tire_information(
+            model=model, ocr_texts=[], api_key=api_key,
+            flattened_image=image_bytes,
+        )
+    except Exception as e:
+        logger.error(f"Raw LLM call failed: {e}")
+        return None
 
 
 def extract_tire_information(
@@ -319,32 +267,14 @@ def extract_tire_information(
     ocr_texts: List[str],
     api_key: str,
     known_tire_candidates: str = "",
-    flattened_image: Optional[bytes] = None
+    flattened_image: Optional[bytes] = None,
 ) -> dict:
-    """
-    Simple wrapper to extract tire information from OCR texts.
-
-    Args:
-        ocr_texts: List of recognized text strings from the tire sidewall
-        api_key: Google Gemini API key
-        known_tire_candidates: Optional string with known tire models/manufacturers
-        flattened_image: Optional flattened tire sidewall image as bytes (JPEG format)
-
-    Returns:
-        Dictionary with tire information (Manufacturer, Model, Size, LoadSpeed, DOT, SpecialMarkings)
-    """
-    # Combine all OCR texts
+    """Extract tire information from OCR texts via Gemini."""
     combined_text = " ".join(ocr_texts)
-
-    # Initialize Gemini service
     service = GeminiService(api_key=api_key, model=model)
-
-    # Extract tire information
-    result = service.extract_tire_info_sync(
+    return service.extract_tire_info_sync(
         ocr_text=combined_text,
         known_tire_candidates=known_tire_candidates,
         prompt_template=EXTRACT_ENTIRE_INFORMATION_PROMPT,
-        flattened_image=flattened_image
+        flattened_image=flattened_image,
     )
-
-    return result

@@ -8,8 +8,12 @@ load_dotenv()
 class TireExtractionConfig:
     # Model paths
     YOLO_MODEL_PATH = "models/tire_det.pt"
-    TEXT_DETECTION_MODEL_PATH = "models/yolo_textdetv3.pt"
+    TEXT_DETECTION_MODEL_PATH = "models/yolov11n_oclip_asp_c5.pt"
     TEXT_RECOGNITION_MODEL_PATH = "models/text_rec.pth"
+
+    # Benchmark: additional text detector for comparison
+    TEXT_DETECTION_ORIGIN_MODEL_PATH = "models/yolo_origin.pt"
+    TEXT_DETECTION_IMPROVED_MODEL_PATH = "models/yolov11n_oclip_asp_c4_sppf2.pt"
 
     # Text recognition model configuration
     TEXT_RECOGNITION_IMG_HEIGHT = 32

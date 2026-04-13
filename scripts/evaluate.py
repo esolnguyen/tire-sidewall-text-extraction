@@ -14,8 +14,6 @@ Examples:
     python3 evaluate.py --debug --max-images 10
 """
 
-from src.config import TireExtractionConfig
-from src.pipeline import TireImageProcessingPipeline
 import os
 import sys
 import csv
@@ -24,12 +22,15 @@ import logging
 import argparse
 import pandas as pd
 from datetime import datetime
-from typing import Dict, List,  Optional
+from typing import Dict, List, Optional
 import traceback
 from fuzzywuzzy import fuzz
 
 # Add src to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+
+from config import TireExtractionConfig
+from pipeline.core import TireImageProcessingPipeline
 
 
 # Setup logging
