@@ -1,0 +1,1 @@
+/home/tnguyen/miniconda3/envs/ie/bin/streamlit run src/app.py
