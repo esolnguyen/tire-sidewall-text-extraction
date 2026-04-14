@@ -13,6 +13,36 @@ logger = logging.getLogger(__name__)
 
 # ── Prompt ───────────────────────────────────────────────────────────────
 
+response_schema = {
+    "type": "object",
+    "properties": {
+        "Manufacturer": {
+            "type": "string",
+            "description": "The manufacturer of the tire",
+        },
+        "Model": {"type": "string", "description": "The model name or number"},
+        "Size": {"type": "string", "description": "The tire size dimensions"},
+        "LoadSpeed": {
+            "type": "string",
+            "description": "The load index and speed rating",
+        },
+        "DOT": {"type": "string", "description": "The 4-digit WWYY DOT date code"},
+        "SpecialMarkings": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "A list of any special markings found",
+        },
+    },
+    "required": [
+        "Manufacturer",
+        "Model",
+        "Size",
+        "LoadSpeed",
+        "DOT",
+        "SpecialMarkings",
+    ],
+}
+
 EXTRACT_ENTIRE_INFORMATION_PROMPT = """
 Your task is to perform a complete analysis of the provided tire sidewall. You have access to both OCR-extracted text and an image of the flattened tire sidewall. Use both sources to identify the manufacturer, model, and other technical details, and return them in a single JSON object.
 
@@ -69,16 +99,6 @@ Specifically:
 **JSON Output Schema:**
 ---
 Please structure your response in this exact JSON format. If a value is not found, use "Not found".
-For each field, also return a `bbox` array containing the bounding box(es) from the OCR input that you used to extract that value. Each bbox should be `[x1, y1, x2, y2]`. If the value was inferred purely from the image (not from any OCR text), return an empty array.
-
-{{
-    "Manufacturer": {{"value": "string", "bbox": [[x1, y1, x2, y2]]}},
-    "Model": {{"value": "string", "bbox": [[x1, y1, x2, y2]]}},
-    "Size": {{"value": "string", "bbox": [[x1, y1, x2, y2]]}},
-    "LoadSpeed": {{"value": "string", "bbox": [[x1, y1, x2, y2]]}},
-    "DOT": {{"value": "string (4-digit WWYY)", "bbox": [[x1, y1, x2, y2]]}},
-    "SpecialMarkings": [{{"value": "string", "bbox": [[x1, y1, x2, y2]]}}]
-}}
 
 ---
 **Known Special Markings Reference:**
@@ -106,61 +126,48 @@ For each field, also return a `bbox` array containing the bounding box(es) from 
 - 'XL': 'Extra load'
 - 'ZP': 'Michelin zero-pressure (run-flat)'
 
----
-**Example Output:**
----
-{{
-    "Manufacturer": {{"value": "Michelin", "bbox": [[120, 50, 580, 130]]}},
-    "Model": {{"value": "Pilot Sport 4S", "bbox": [[600, 50, 1200, 130], [1210, 50, 1400, 130]]}},
-    "Size": {{"value": "245/35ZR20", "bbox": [[1500, 200, 2100, 280]]}},
-    "LoadSpeed": {{"value": "95Y", "bbox": [[2110, 200, 2300, 280]]}},
-    "DOT": {{"value": "1023", "bbox": [[3000, 400, 3400, 480]]}},
-    "SpecialMarkings": [
-        {{"value": "AO", "bbox": [[2500, 300, 2650, 380]]}},
-        {{"value": "XL", "bbox": [[2700, 300, 2850, 380]]}}
-    ]
-}}
-
 Now, analyze the provided data and respond with only the populated JSON object.
 """
 
 
 # ── Service ──────────────────────────────────────────────────────────────
 
+
 class GeminiService:
     def __init__(self, api_key: str, model: str = "gemini-2.0-flash-exp"):
         self.client = genai.Client(api_key=api_key)
         self.model = model
 
-    def _process_response(self, response: types.GenerateContentResponse, duration: float) -> dict:
+    def _process_response(
+        self, response: types.GenerateContentResponse, duration: float
+    ) -> dict:
         """Process Gemini API responses and handle token counting."""
         if not response.candidates:
-            feedback = getattr(response, 'prompt_feedback', None)
-            block_reason = getattr(feedback, 'block_reason', 'Unknown')
-            safety_ratings = getattr(feedback, 'safety_ratings', 'N/A')
+            feedback = getattr(response, "prompt_feedback", None)
+            block_reason = getattr(feedback, "block_reason", "Unknown")
+            safety_ratings = getattr(feedback, "safety_ratings", "N/A")
             logger.error(
                 f"Gemini response blocked or empty. Reason: {block_reason}. Safety: {safety_ratings}"
             )
             raise Exception(f"Gemini response blocked. Reason: {block_reason}")
 
-        usage_metadata = getattr(response, 'usage_metadata', None)
+        usage_metadata = getattr(response, "usage_metadata", None)
         input_tokens = 0
         output_tokens = 0
 
         if usage_metadata:
-            input_tokens = getattr(
-                usage_metadata, 'prompt_token_count', 0) or 0
-            thought_tokens = getattr(
-                usage_metadata, 'thoughts_token_count', 0) or 0
-            output_tokens = getattr(
-                usage_metadata, 'candidates_token_count', 0) or 0
+            input_tokens = getattr(usage_metadata, "prompt_token_count", 0) or 0
+            thought_tokens = getattr(usage_metadata, "thoughts_token_count", 0) or 0
+            output_tokens = getattr(usage_metadata, "candidates_token_count", 0) or 0
             output_tokens += thought_tokens
 
         response_content = ""
-        candidate_content = getattr(response.candidates[0], 'content', None)
-        if candidate_content is not None and getattr(candidate_content, 'parts', None):
+        candidate_content = getattr(response.candidates[0], "content", None)
+        if candidate_content is not None and getattr(candidate_content, "parts", None):
             response_content = "".join(
-                part.text for part in candidate_content.parts if getattr(part, 'text', None)
+                part.text
+                for part in candidate_content.parts
+                if getattr(part, "text", None)
             ).strip()
 
         if not response_content:
@@ -176,7 +183,8 @@ class GeminiService:
             }
         except json.JSONDecodeError:
             raise Exception(
-                f"Failed to parse JSON from Gemini. Raw: {response_content}")
+                f"Failed to parse JSON from Gemini. Raw: {response_content}"
+            )
 
     async def extract_tire_info(
         self,
@@ -192,7 +200,7 @@ class GeminiService:
             full_text=ocr_text, know_tire=known_tire_candidates
         )
         contents = types.Content(
-            role='user',
+            role="user",
             parts=[types.Part.from_text(text=formatted_prompt)],
         )
         config = types.GenerateContentConfig(
@@ -200,11 +208,14 @@ class GeminiService:
             temperature=0,
             top_k=1,
             top_p=1,
-            max_output_tokens=512,
+            max_output_tokens=2048,
             seed=42,
+            response_schema=response_schema,
         )
         response = await self.client.aio.models.generate_content(
-            model=self.model, contents=contents, config=config,
+            model=self.model,
+            contents=contents,
+            config=config,
         )
         duration = time.time() - start_time
         return self._process_response(response, duration)["content"]
@@ -225,26 +236,31 @@ class GeminiService:
         )
         parts = [types.Part.from_text(text=formatted_prompt)]
         if flattened_image is not None:
-            parts.append(types.Part.from_bytes(
-                data=flattened_image, mime_type="image/jpeg"))
+            parts.append(
+                types.Part.from_bytes(data=flattened_image, mime_type="image/jpeg")
+            )
 
-        contents = types.Content(role='user', parts=parts)
+        contents = types.Content(role="user", parts=parts)
         config = types.GenerateContentConfig(
             response_mime_type="application/json",
             temperature=0,
             top_k=1,
             top_p=1,
-            max_output_tokens=512,
+            max_output_tokens=2048,
             seed=42,
+            response_schema=response_schema,
         )
         response = self.client.models.generate_content(
-            model=self.model, contents=contents, config=config,
+            model=self.model,
+            contents=contents,
+            config=config,
         )
         duration = time.time() - start_time
         return self._process_response(response, duration)["content"]
 
 
 # ── Convenience wrappers ──────────────────────────────────────────────────
+
 
 def extract_tire_information_raw(
     model: str,
@@ -254,7 +270,9 @@ def extract_tire_information_raw(
     """Call Gemini directly with a raw image, no OCR preprocessing."""
     try:
         return extract_tire_information(
-            model=model, ocr_texts=[], api_key=api_key,
+            model=model,
+            ocr_texts=[],
+            api_key=api_key,
             flattened_image=image_bytes,
         )
     except Exception as e:

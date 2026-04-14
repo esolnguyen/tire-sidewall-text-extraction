@@ -1,8 +1,9 @@
 """Core tire image processing pipeline."""
 
 import os
+import time
 import logging
-from typing import Optional, Dict, List
+from typing import Optional, Dict, List, Iterator
 from io import BytesIO
 
 import cv2
@@ -18,7 +19,7 @@ from models.text_recognition import TextRecognitionModel
 from models.text_detection import TextDetectionModel
 from utils.image_preprocessing import preprocess_image
 from utils.tire_cropping import detect_tire_and_rim, get_flattened_sidewall_image
-from pipeline.types import TextDetectionResult, PipelineResult
+from pipeline.types import TextDetectionResult, PipelineResult, PipelineStepEvent
 from exceptions import (
     ImageLoadError,
     TireDetectionError,
@@ -113,9 +114,37 @@ class TireImageProcessingPipeline:
         output_dir: Optional[str] = None,
         save_debug: bool = False,
     ) -> PipelineResult:
-        """Run the complete tire extraction pipeline."""
-        logger.info(f"Starting pipeline for: {image_source}")
+        """Run the complete tire extraction pipeline (blocking)."""
         output_files: Dict[str, str] = {}
+        text_detection_results: List[TextDetectionResult] = []
+        tire_info: Optional[TireInfo] = None
+
+        for event in self.run_pipeline_streaming(
+            image_source, output_dir=output_dir, save_debug=save_debug
+        ):
+            output_files.update(event.output_files)
+            if event.text_detections:
+                text_detection_results = event.text_detections
+            if event.tire_info is not None:
+                tire_info = event.tire_info
+
+        if tire_info is None:
+            raise LLMExtractionError("Pipeline finished without tire info")
+
+        return PipelineResult(
+            tire_info=tire_info,
+            text_detections=text_detection_results,
+            output_files=output_files,
+        )
+
+    def run_pipeline_streaming(
+        self,
+        image_source: str,
+        output_dir: Optional[str] = None,
+        save_debug: bool = False,
+    ) -> Iterator[PipelineStepEvent]:
+        """Run the pipeline as a generator that yields after each step."""
+        logger.info(f"Starting pipeline for: {image_source}")
 
         if output_dir is None:
             base = os.path.splitext(os.path.basename(image_source))[0]
@@ -123,10 +152,13 @@ class TireImageProcessingPipeline:
         os.makedirs(output_dir, exist_ok=True)
 
         # Step 1: Load image
+        t0 = time.time()
         original_image = self.load_image(image_source)
         logger.info(f"Image loaded: {original_image.shape}")
+        yield PipelineStepEvent(name="Load image", duration=time.time() - t0)
 
         # Step 2: Detect tire and rim
+        t0 = time.time()
         logger.info("Detecting tire and rim...")
         seg_save = os.path.join(output_dir, "tire_rim_detection.jpg")
         detection_result = detect_tire_and_rim(
@@ -135,70 +167,97 @@ class TireImageProcessingPipeline:
         if detection_result is None:
             raise TireDetectionError("Tire or rim detection failed")
         wheel_contour, rim_contour = detection_result
-        output_files["tire_rim_detection"] = seg_save
+        yield PipelineStepEvent(
+            name="Detect tire & rim",
+            duration=time.time() - t0,
+            output_files={"tire_rim_detection": seg_save},
+        )
 
         # Step 3: Flatten sidewall
+        t0 = time.time()
         logger.info("Flattening sidewall...")
         flattened_image = get_flattened_sidewall_image(
             original_image, wheel_contour, rim_contour, self.config,
         )
         if flattened_image is None:
             raise SidewallFlatteningError("Failed to flatten sidewall")
-
         flattened_path = os.path.join(output_dir, "flattened.jpg")
         cv2.imwrite(flattened_path, flattened_image)
-        output_files["flattened"] = flattened_path
+        yield PipelineStepEvent(
+            name="Flatten sidewall",
+            duration=time.time() - t0,
+            output_files={"flattened": flattened_path},
+        )
 
         # Step 4: Preprocess
+        t0 = time.time()
         logger.info("Preprocessing flattened image...")
         preprocessed_image = self.preprocess_tire_image(flattened_image)
         preprocessed_path = os.path.join(output_dir, "preprocessed.jpg")
         cv2.imwrite(preprocessed_path, preprocessed_image)
-        output_files["preprocessed"] = preprocessed_path
+        yield PipelineStepEvent(
+            name="Preprocess",
+            duration=time.time() - t0,
+            output_files={"preprocessed": preprocessed_path},
+        )
 
         # Step 5: Detect text regions
+        t0 = time.time()
         logger.info("Detecting text regions...")
         detections = self.text_detection_model.detect_text(
             preprocessed_image, self.config.CONF_THRESHOLD
         )
         logger.info(f"Found {len(detections)} text regions")
 
+        detection_files: Dict[str, str] = {}
+        if len(detections) > 0:
+            vis_path = os.path.join(output_dir, "detections_preprocessed.jpg")
+            self.text_detection_model.visualize_detections(
+                preprocessed_image, detections, save_path=vis_path
+            )
+            detection_files["detections_preprocessed"] = vis_path
+        yield PipelineStepEvent(
+            name=f"Detect text regions ({len(detections)} found)",
+            duration=time.time() - t0,
+            output_files=detection_files,
+        )
+
         # Step 6: Crop text regions
+        t0 = time.time()
         crop_dir = os.path.join(output_dir, "crops") if save_debug else None
         text_crops = self.text_detection_model.crop_text_regions(
             preprocessed_image, detections, debug_dir=crop_dir
         )
+        crop_files: Dict[str, str] = {}
         if crop_dir and os.path.isdir(crop_dir):
-            output_files["text_crops_dir"] = crop_dir
-
-        # Save detection visualizations
-        if len(detections) > 0:
-            for suffix, img in [
-                ("detections_preprocessed", preprocessed_image),
-                ("detections_flattened", flattened_image),
-            ]:
-                vis_path = os.path.join(output_dir, f"{suffix}.jpg")
-                self.text_detection_model.visualize_detections(
-                    img, detections, save_path=vis_path
-                )
-                output_files[suffix] = vis_path
+            crop_files["text_crops_dir"] = crop_dir
+        yield PipelineStepEvent(
+            name="Crop text regions",
+            duration=time.time() - t0,
+            output_files=crop_files,
+        )
 
         # Step 7: Recognize text
+        t0 = time.time()
         logger.info("Recognizing text...")
         recognized_texts = self.text_recognition_model.recognize_batch(text_crops)
-
         texts_with_bboxes, text_detection_results = self._build_text_results(
             recognized_texts, detections
         )
+        yield PipelineStepEvent(
+            name="Recognize text (OCR)",
+            duration=time.time() - t0,
+            text_detections=text_detection_results,
+        )
 
         # Step 8: Extract structured information using LLM
+        t0 = time.time()
         tire_info = self._extract_with_llm(texts_with_bboxes, flattened_image)
         logger.info("Pipeline completed successfully")
-
-        return PipelineResult(
+        yield PipelineStepEvent(
+            name="LLM extraction",
+            duration=time.time() - t0,
             tire_info=tire_info,
-            text_detections=text_detection_results,
-            output_files=output_files,
         )
 
     def run_llm_only(self, image_source: str) -> TireInfo:
