@@ -67,9 +67,9 @@ scripts/                     # Evaluation & analysis scripts
 
 - Python 3.10+
 - Model weights in `models/` directory:
-  - `tire_det.pt` — YOLO tire/rim segmentation
-  - `yolov11n_oclip_asp_c5.pt` — YOLO text detection
-  - `text_rec.pth` — TRBA text recognition
+  - `tire_det.pt`: YOLO tire/rim segmentation
+  - `yolov11n_oclip_asp_c5.pt`: YOLO text detection
+  - `text_rec.pth`: TRBA text recognition
 
 ### Installation
 
@@ -112,12 +112,12 @@ cd src && python main.py --port 8000 --reload
 Upload a tire image and extract information.
 
 **Parameters:**
-- `image` (file) — Tire image (JPEG, PNG, HEIC)
-- `mode` (form) — `pipeline` (default) or `llm_only`
+- `image` (file): Tire image (JPEG, PNG, HEIC)
+- `mode` (form): `pipeline` (default) or `llm_only`
 
 **Modes:**
-- `pipeline` — Full pipeline: detection, flattening, OCR, then LLM extraction
-- `llm_only` — Send raw image directly to Gemini LLM, no preprocessing
+- `pipeline`: Full pipeline - detection, flattening, OCR, then LLM extraction
+- `llm_only`: Send raw image directly to Gemini LLM, no preprocessing
 
 **Example:**
 
